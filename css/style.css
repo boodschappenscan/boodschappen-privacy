@@ -48,7 +48,7 @@ img {
 /* Strakke telefoon-export met transparante hoeken — geen extra zwarte rand */
 .device-shot {
   line-height: 0;
-  width: 220px;
+  width: 280px;
   max-width: 100%;
   filter: drop-shadow(0 14px 28px rgba(22, 49, 38, 0.16));
   isolation: isolate;
@@ -81,7 +81,7 @@ img {
   padding: 8px;
   box-shadow: 0 16px 40px rgba(22, 49, 38, 0.18);
   line-height: 0;
-  width: 220px;
+  width: 280px;
   max-width: 100%;
 }
 
@@ -182,7 +182,7 @@ img {
 }
 
 .hero-visual .device-shot {
-  width: 220px;
+  width: 280px;
 }
 
 .hero .hero-text {
@@ -372,7 +372,7 @@ img {
 }
 
 .steps-visual .device-shot {
-  width: 200px;
+  width: 260px;
 }
 
 .steps-cta {
@@ -477,11 +477,11 @@ img {
 }
 
 .features-grid .screenshot-wrap .phone-frame {
-  width: 200px;
+  width: 260px;
 }
 
 .features-grid .screenshot-wrap .device-shot {
-  width: 200px;
+  width: 260px;
 }
 
 /* Pricing */
@@ -1035,7 +1035,7 @@ img {
   }
 
   .hero-visual .device-shot {
-    width: min(200px, 55vw);
+    width: min(260px, 72vw);
   }
 
   .hero .hero-text {

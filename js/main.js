@@ -76,12 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const openLightbox = (img, wrapper) => {
     lastFocused = wrapper;
     const renderedWidth = img.getBoundingClientRect().width;
-    const targetWidth = Math.min(renderedWidth * 1.5, window.innerWidth * 0.9);
+    const targetWidth = Math.min(renderedWidth * 2, window.innerWidth * 0.92);
 
     lightboxImg.src = img.currentSrc || img.src;
     lightboxImg.alt = img.alt;
     lightboxImg.style.width = `${Math.round(targetWidth)}px`;
-    lightboxImg.style.maxWidth = '90vw';
+    lightboxImg.style.maxWidth = '92vw';
     lightboxImg.style.maxHeight = '90vh';
 
     lightbox.classList.add('is-open');
