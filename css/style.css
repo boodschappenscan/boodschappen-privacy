@@ -35,14 +35,29 @@ img {
   height: auto;
 }
 
-/* iPhone-screenshots: altijd 1024×1536-verhouding, nooit uitrekken */
+/* iPhone-screenshots: alleen breedte begrenzen, hoogte volgt vanzelf (2:3) */
 .app-screenshot {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1024 / 1536;
-  object-fit: contain;
-  object-position: center top;
+  max-height: none;
+}
+
+.screenshot-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.phone-frame {
+  background: #111;
+  border-radius: 28px;
+  padding: 8px;
+  box-shadow: 0 16px 40px rgba(22, 49, 38, 0.18);
+  line-height: 0;
+}
+
+.phone-frame .app-screenshot {
+  border-radius: 22px;
 }
 
 /* Navbar */
@@ -119,24 +134,23 @@ img {
 .hero .container {
   background: linear-gradient(145deg, #e8f3ec 0%, #f7faf8 45%, #eef6f1 100%);
   border-radius: 16px;
-  min-height: 520px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  padding: 40px 30px;
+  padding: 40px 30px 32px;
 }
 
 .hero .hero-content {
-  flex: 1 1 58%;
-  max-width: 58%;
+  flex: 1 1 55%;
+  max-width: 55%;
   min-width: 0;
 }
 
 .hero-visual {
   flex: 0 0 auto;
-  width: min(34%, 260px);
-  align-self: flex-end;
+  width: 220px;
+  max-width: 32%;
 }
 
 .hero .hero-text {
@@ -234,13 +248,17 @@ img {
   align-items: center;
 }
 
-.video-preview {
+.video-content .phone-frame {
+  width: 220px;
+  max-width: 55vw;
   margin-bottom: 20px;
+}
+
+.video-preview {
   border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(22, 49, 38, 0.15);
-  max-width: min(300px, 85vw);
-  margin-left: auto;
-  margin-right: auto;
+  box-shadow: none;
+  width: 100%;
+  height: auto;
 }
 
 /* Features grid (screenshots) */
@@ -268,9 +286,14 @@ img {
   margin-bottom: 14px;
 }
 
+.features-grid .screenshot-wrap .phone-frame {
+  width: 200px;
+  max-width: 100%;
+}
+
 .features-grid .screenshot-wrap .app-screenshot {
-  width: min(220px, 100%);
-  border-radius: 8px;
+  width: 100%;
+  height: auto;
 }
 
 .features-grid .card h4 {
@@ -747,10 +770,10 @@ img {
   }
 
   .hero-visual {
-    width: min(240px, 70vw);
-    align-self: center;
+    width: min(200px, 55vw);
+    max-width: none;
     order: -1;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .hero .hero-text {
