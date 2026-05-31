@@ -35,17 +35,12 @@ img {
   height: auto;
 }
 
-/* iPhone-screenshots: alleen breedte begrenzen, hoogte volgt vanzelf (2:3) */
+/* iPhone-screenshots (1024×2226) — hoogte volgt altijd uit bestand */
 .app-screenshot {
   display: block;
   width: 100%;
   height: auto;
-  max-height: none;
-}
-
-.screenshot-wrap {
-  display: flex;
-  justify-content: center;
+  vertical-align: top;
 }
 
 .phone-frame {
@@ -54,6 +49,8 @@ img {
   padding: 8px;
   box-shadow: 0 16px 40px rgba(22, 49, 38, 0.18);
   line-height: 0;
+  width: 220px;
+  max-width: 100%;
 }
 
 .phone-frame .app-screenshot {
@@ -149,8 +146,11 @@ img {
 
 .hero-visual {
   flex: 0 0 auto;
-  width: 220px;
   max-width: 32%;
+}
+
+.hero-visual .phone-frame {
+  width: 220px;
 }
 
 .hero .hero-text {
@@ -254,6 +254,15 @@ img {
   margin-bottom: 20px;
 }
 
+.screenshot-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.features-grid .screenshot-wrap .phone-frame {
+  width: 200px;
+}
+
 .video-preview {
   border-radius: 12px;
   box-shadow: none;
@@ -284,16 +293,6 @@ img {
   display: flex;
   justify-content: center;
   margin-bottom: 14px;
-}
-
-.features-grid .screenshot-wrap .phone-frame {
-  width: 200px;
-  max-width: 100%;
-}
-
-.features-grid .screenshot-wrap .app-screenshot {
-  width: 100%;
-  height: auto;
 }
 
 .features-grid .card h4 {
@@ -770,10 +769,12 @@ img {
   }
 
   .hero-visual {
-    width: min(200px, 55vw);
-    max-width: none;
     order: -1;
     margin-bottom: 12px;
+  }
+
+  .hero-visual .phone-frame {
+    width: min(200px, 55vw);
   }
 
   .hero .hero-text {
