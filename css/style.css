@@ -114,16 +114,16 @@ img {
 .navbar .logo a {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   color: var(--dark-color);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.22rem;
 }
 
 .navbar .logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 48px;
+  height: 48px;
+  border-radius: 11px;
 }
 
 .navbar .main-menu ul {
