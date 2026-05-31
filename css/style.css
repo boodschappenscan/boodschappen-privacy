@@ -64,6 +64,16 @@ img {
   backface-visibility: hidden;
 }
 
+.device-shot.is-zoomable,
+.phone-frame.is-zoomable {
+  cursor: zoom-in;
+}
+
+.device-shot.is-zoomable .app-screenshot,
+.phone-frame.is-zoomable .app-screenshot {
+  cursor: zoom-in;
+}
+
 /* Rechte screenshots zonder telefoonvorm — optionele donkere rand */
 .phone-frame {
   background: #111;
@@ -921,6 +931,70 @@ img {
 .mobile-menu ul li a:hover,
 .mobile-menu ul li a.active {
   color: var(--primary-color);
+}
+
+/* Screenshot lightbox (klik = 50% groter) */
+
+.screenshot-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(20, 41, 32, 0.72);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.screenshot-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.screenshot-lightbox-inner {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  line-height: 0;
+  filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.35));
+  transform: scale(0.96);
+  transition: transform 0.2s ease;
+}
+
+.screenshot-lightbox.is-open .screenshot-lightbox-inner {
+  transform: scale(1);
+}
+
+.screenshot-lightbox-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.screenshot-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1001;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.screenshot-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.28);
 }
 
 /* Media Queries */
