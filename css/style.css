@@ -32,6 +32,17 @@ ul {
 
 img {
   max-width: 100%;
+  height: auto;
+}
+
+/* iPhone-screenshots: altijd 1024×1536-verhouding, nooit uitrekken */
+.app-screenshot {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1024 / 1536;
+  object-fit: contain;
+  object-position: center top;
 }
 
 /* Navbar */
@@ -111,27 +122,21 @@ img {
   min-height: 520px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 32px;
   padding: 40px 30px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero .container::after {
-  content: '';
-  position: absolute;
-  right: 5%;
-  bottom: 0;
-  width: min(38%, 280px);
-  height: 88%;
-  background: url('../assets/screenshots/startscherm.webp') no-repeat center bottom;
-  background-size: contain;
-  pointer-events: none;
 }
 
 .hero .hero-content {
-  width: 58%;
-  position: relative;
-  z-index: 1;
+  flex: 1 1 58%;
+  max-width: 58%;
+  min-width: 0;
+}
+
+.hero-visual {
+  flex: 0 0 auto;
+  width: min(34%, 260px);
+  align-self: flex-end;
 }
 
 .hero .hero-text {
@@ -233,7 +238,9 @@ img {
   margin-bottom: 20px;
   border-radius: 12px;
   box-shadow: 0 12px 32px rgba(22, 49, 38, 0.15);
-  max-width: 720px;
+  max-width: min(300px, 85vw);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Features grid (screenshots) */
@@ -247,11 +254,23 @@ img {
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 20px;
+  align-items: start;
 }
 
-.features-grid .card img {
-  border-radius: 8px;
+.features-grid .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.features-grid .screenshot-wrap {
+  display: flex;
+  justify-content: center;
   margin-bottom: 14px;
+}
+
+.features-grid .screenshot-wrap .app-screenshot {
+  width: min(220px, 100%);
+  border-radius: 8px;
 }
 
 .features-grid .card h4 {
@@ -702,11 +721,6 @@ img {
     font-size: 2.5rem;
   }
 
-  .hero .container::after {
-    opacity: 0.35;
-    width: 45%;
-    right: 0;
-  }
 }
 
 @media (max-width: 670px) {
@@ -719,23 +733,28 @@ img {
   }
 
   .hero .container {
-    min-height: 770px;
-    align-items: flex-start;
+    flex-direction: column;
+    min-height: 0;
+    align-items: center;
     padding-top: 30px;
+    text-align: center;
   }
 
-  .hero .container::after {
-    width: min(70%, 260px);
-    height: 55%;
-    right: 50%;
-    transform: translateX(50%);
-    opacity: 0.5;
+  .hero .hero-content {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
   }
 
-  .hero .hero-content,
+  .hero-visual {
+    width: min(240px, 70vw);
+    align-self: center;
+    order: -1;
+    margin-bottom: 8px;
+  }
+
   .hero .hero-text {
     width: 100%;
-    text-align: center;
   }
 
   .hero .hero-buttons {
