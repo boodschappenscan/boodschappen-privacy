@@ -67,11 +67,16 @@ img {
 .device-shot.is-zoomable,
 .phone-frame.is-zoomable {
   cursor: zoom-in;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(27, 77, 46, 0.15);
 }
 
 .device-shot.is-zoomable .app-screenshot,
 .phone-frame.is-zoomable .app-screenshot {
   cursor: zoom-in;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 /* Rechte screenshots zonder telefoonvorm — optionele donkere rand */
@@ -825,20 +830,9 @@ img {
       box-shadow 0.28s ease;
   }
 
-  .features-grid .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 14px 32px rgba(22, 49, 38, 0.1);
-  }
-
   .device-shot.is-zoomable,
   .phone-frame.is-zoomable {
     transition: transform 0.28s ease, filter 0.28s ease;
-  }
-
-  .device-shot.is-zoomable:hover,
-  .phone-frame.is-zoomable:hover {
-    transform: translateY(-4px);
-    filter: drop-shadow(0 18px 34px rgba(22, 49, 38, 0.2));
   }
 
   .btn {
@@ -846,10 +840,6 @@ img {
       opacity 0.25s ease,
       transform 0.25s ease,
       background-color 0.25s ease;
-  }
-
-  .btn:hover {
-    transform: translateY(-2px);
   }
 
   .btn:active {
@@ -860,8 +850,25 @@ img {
     transition: transform 0.3s ease, background-color 0.3s ease;
   }
 
-  .step-item:hover .step-num {
-    transform: scale(1.06);
+  @media (hover: hover) and (pointer: fine) {
+    .features-grid .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 32px rgba(22, 49, 38, 0.1);
+    }
+
+    .device-shot.is-zoomable:hover,
+    .phone-frame.is-zoomable:hover {
+      transform: translateY(-4px);
+      filter: drop-shadow(0 18px 34px rgba(22, 49, 38, 0.2));
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .step-item:hover .step-num {
+      transform: scale(1.06);
+    }
   }
 }
 

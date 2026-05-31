@@ -100,7 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
     wrapper.setAttribute('role', 'button');
     wrapper.setAttribute('aria-label', `${img.alt || 'Screenshot'} vergroten`);
 
-    const activate = () => openLightbox(img, wrapper);
+    let tapLocked = false;
+    const activate = () => {
+      if (tapLocked) return;
+      tapLocked = true;
+      openLightbox(img, wrapper);
+      setTimeout(() => {
+        tapLocked = false;
+      }, 400);
+    };
+
     wrapper.addEventListener('click', activate);
     wrapper.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
