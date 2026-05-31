@@ -161,6 +161,34 @@ img {
   color: var(--muted-color);
 }
 
+.hero-heading .hero-subline {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.58em;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--primary-light);
+}
+
+.section-lead {
+  margin-top: -10px;
+  color: var(--muted-color);
+}
+
+.section-subline {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.72em;
+  font-weight: 500;
+  line-height: 1.4;
+  opacity: 0.92;
+}
+
+.testimonials .section-subline {
+  color: #d4e8dc;
+  opacity: 1;
+}
+
 .hero .hero-buttons {
   display: flex;
   flex-wrap: wrap;
