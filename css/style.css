@@ -449,10 +449,22 @@ img {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 24px;
   margin-top: 20px;
   align-items: stretch;
+}
+
+.features-grid .card {
+  grid-column: span 2;
+}
+
+.features-grid .card.features-grid-centered:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.features-grid .card.features-grid-centered:nth-child(5) {
+  grid-column: 4 / span 2;
 }
 
 .features-grid .card {
@@ -1169,6 +1181,12 @@ img {
   .features-grid,
   .footer-simple {
     grid-template-columns: 1fr;
+  }
+
+  .features-grid .card,
+  .features-grid .card.features-grid-centered:nth-child(4),
+  .features-grid .card.features-grid-centered:nth-child(5) {
+    grid-column: 1 / -1;
   }
 
   .footer-links ul {
