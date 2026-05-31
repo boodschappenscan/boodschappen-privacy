@@ -9,6 +9,8 @@
   --primary-light: #2d7a4a;
   --light-color: #f4f7f5;
   --dark-color: #163126;
+  --green-dark: #142920;
+  --green-mid: #1b4d2e;
   --muted-color: #4f6c60;
   --line-color: #d7e6df;
 }
@@ -169,15 +171,22 @@ img {
 .hero-trust {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 18px;
+  gap: 10px 22px;
   font-size: 0.88rem;
   color: var(--muted-color);
 }
 
+.hero-trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .hero-trust span::before {
-  content: '\2713 ';
+  content: '\2713';
   color: var(--primary-light);
   font-weight: 700;
+  flex-shrink: 0;
 }
 
 /* App Store badge */
@@ -240,6 +249,33 @@ img {
 
 .video {
   padding: 10px 0 40px;
+  background-color: var(--green-dark);
+  color: #fff;
+}
+
+.video .text-xl,
+.video .text-md {
+  color: #fff;
+}
+
+.video .btn-primary {
+  background-color: #fff;
+  color: var(--green-dark);
+}
+
+.video .btn-primary:hover {
+  background-color: #e8f3ec;
+  opacity: 1;
+}
+
+.footer.bg-black .btn-primary {
+  background-color: #fff;
+  color: var(--green-dark);
+}
+
+.footer.bg-black .btn-primary:hover {
+  background-color: #e8f3ec;
+  opacity: 1;
 }
 
 .video-content {
@@ -310,11 +346,14 @@ img {
 .testimonials {
   padding: 40px 0;
   display: block;
+  background-color: var(--green-mid);
+  color: #fff;
 }
 
 .testimonials .testimonials-heading {
   max-width: 700px;
   margin-bottom: 40px;
+  color: #fff;
 }
 
 .testimonials-grid {
@@ -323,19 +362,15 @@ img {
   gap: 30px;
 }
 
-.testimonials .card p:first-child {
-  margin-bottom: 20px;
-  color: var(--muted-color);
+.testimonials .card h4 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  color: var(--primary-color);
 }
 
-.testimonials .card p:nth-child(2) {
-  margin-top: 30px;
-  font-weight: bold;
-}
-
-.testimonials .card p:nth-child(3) {
+.testimonials .card p {
+  margin: 0;
   color: var(--muted-color);
-  font-size: 0.9rem;
 }
 
 /* Pricing */
@@ -380,9 +415,18 @@ img {
   color: var(--muted-color);
 }
 
+.pricing .card.bg-black {
+  background-color: var(--green-dark);
+  color: #fff;
+}
+
 .pricing .card.bg-black ul li,
 .pricing .card.bg-black p {
-  color: #ddd;
+  color: #e8f0eb;
+}
+
+.pricing .card.bg-black .pricing-card-price {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
 }
 
 /* FAQ */
@@ -473,15 +517,6 @@ img {
   height: 44px;
   border-radius: 10px;
   margin-bottom: 16px;
-}
-
-.footer-bottom {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid #333;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #999;
 }
 
 /* Subpages */
@@ -671,13 +706,26 @@ img {
 }
 
 .bg-dark {
-  background-color: var(--dark-color);
+  background-color: var(--green-mid);
   color: #fff;
 }
 
 .bg-black {
-  background-color: black;
+  background-color: var(--green-dark);
   color: #fff;
+}
+
+.footer.bg-black {
+  background-color: var(--green-dark);
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  font-size: 0.9rem;
+  color: #b8cfc4;
 }
 
 /* Hamburger Button */
