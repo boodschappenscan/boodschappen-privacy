@@ -50,13 +50,18 @@ img {
   line-height: 0;
   width: 220px;
   max-width: 100%;
-  filter: drop-shadow(0 16px 36px rgba(22, 49, 38, 0.22));
+  filter: drop-shadow(0 14px 28px rgba(22, 49, 38, 0.16));
+  isolation: isolate;
 }
 
 .device-shot .app-screenshot {
   border-radius: 0;
   width: 100%;
   height: auto;
+  display: block;
+  /* Voorkom grijs halo-fringe bij schalen in Safari/Chrome */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Rechte screenshots zonder telefoonvorm — optionele donkere rand */
