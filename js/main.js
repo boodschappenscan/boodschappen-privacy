@@ -120,3 +120,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// Subtiele scroll-animaties
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const heroParts = document.querySelectorAll('.hero .hero-content, .hero .hero-visual');
+  heroParts.forEach((el, index) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = `${index * 0.12}s`;
+    requestAnimationFrame(() => el.classList.add('is-visible'));
+  });
+
+  const staggerGroups = [
+    { selector: '.step-item', step: 0.08 },
+    { selector: '.features-grid .card', step: 0.1 },
+    { selector: '.pricing-grid .card', step: 0.12 },
+    { selector: '.faq-group', step: 0.06 },
+  ];
+
+  const revealItems = document.querySelectorAll(
+    '.steps-header, .steps-visual, .steps-cta, ' +
+      '.features .section-heading, .features .section-lead, ' +
+      '.pricing .container-sm > .section-heading, .pricing .container-sm > .section-lead, .pricing-footer, ' +
+      '.faq .section-heading, ' +
+      '.cta-band .cta-title, .cta-band .cta-lead, .cta-band .cta-buttons'
+  );
+
+  staggerGroups.forEach(({ selector, step }) => {
+    document.querySelectorAll(selector).forEach((el, index) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = `${index * step}s`;
+    });
+  });
+
+  revealItems.forEach((el) => el.classList.add('reveal'));
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -32px 0px' }
+  );
+
+  document
+    .querySelectorAll('.reveal:not(.is-visible)')
+    .forEach((el) => observer.observe(el));
+});
