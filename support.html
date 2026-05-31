@@ -7,9 +7,9 @@
   <meta name="description" content="Support en contact voor BoodschappenScan — vragen, hulp en feedback.">
   <meta name="robots" content="index,follow">
   <style>
-    :root { --text: #163126; --muted: #4f6c60; --accent: #1b4d2e; --line: #d7e6df; --bg: #f7faf8; }
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif; color: var(--text); background: var(--bg); line-height: 1.55; }
-    .wrap { width: min(720px, 92vw); margin: 0 auto; padding: 40px 0 64px; }
+    :root { --text: #163126; --muted: #4f6c60; --accent: #1b4d2e; --accent-light: #2d7a4a; --line: #d7e6df; --bg: #f7faf8; --hero-bg: linear-gradient(145deg, #e8f3ec 0%, #f7faf8 45%, #eef6f1 100%); --font: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+    body { margin: 0; font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.55; }
+    .wrap { width: min(720px, 92vw); margin: 0 auto; padding: 36px 0 64px; }
     h1 { font-size: 1.75rem; margin: 0 0 8px; color: var(--accent); }
     .meta { color: var(--muted); font-size: 0.95rem; margin-bottom: 28px; }
     h2 { font-size: 1.15rem; margin: 28px 0 10px; color: var(--accent); }
@@ -17,17 +17,93 @@
     ul { padding-left: 1.2rem; margin: 0 0 12px; }
     li { margin-bottom: 6px; }
     .box { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin: 20px 0; font-size: 0.92rem; color: var(--muted); }
+    .box-accent { border-color: #b8d4c4; background: #f0f7f3; color: var(--text); }
+    .box-accent h2 { margin-top: 0; font-size: 1.1rem; }
+    .site-header {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 250, 248, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-header .header-inner {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    .brand img { width: 36px; height: 36px; border-radius: 9px; object-fit: cover; }
+    .site-nav { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.9rem; margin: 0; }
+    .site-nav a { text-decoration: none; color: var(--muted); }
+    .site-nav a:hover, .site-nav a.active { color: var(--accent); }
+    .site-nav a.active { font-weight: 600; }
+    .page-hero {
+      background: var(--hero-bg);
+      border-bottom: 1px solid var(--line);
+      padding: 40px 0 36px;
+    }
+    .page-hero-inner {
+      width: min(720px, 92vw);
+      margin: 0 auto;
+    }
+    .page-hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      line-height: 1.15;
+      margin: 0 0 10px;
+      color: var(--accent);
+    }
+    .page-hero .meta { margin: 0; }
     a { color: #27634a; }
     footer.site-support-ft { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--muted); }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Support</h1>
-    <p class="meta">App: <strong>Boodschappen</strong> (BoodschappenScan)</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="home.html">
+        <img src="assets/app-icon.png" alt="" width="36" height="36">
+        BoodschappenScan
+      </a>
+      <nav class="site-nav" aria-label="Hoofdmenu">
+        <a href="home.html">Home</a>
+        <a href="hoe-het-werkt.html">Hoe het werkt</a>
+        <a href="support.html" class="active">Support</a>
+        <a href="index.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
 
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <h1>Support</h1>
+      <p class="meta">App: <strong>Boodschappen</strong> (BoodschappenScan)</p>
+    </div>
+  </section>
+
+  <div class="wrap">
     <div class="box">
-      Heb je een vraag over de app, loop je ergens tegenaan, of wil je feedback geven? Neem contact op — we helpen je graag verder.
+      Heb je een vraag over de app, loop je ergens tegenaan, of wil je feedback geven? Neem contact op — we helpen je graag verder. Bekijk ook de <a href="home.html">homepage</a> met screenshots van de app.
+    </div>
+
+    <div class="box box-accent">
+      <p style="margin:0 0 10px;"><strong>Nieuw bij BoodschappenScan?</strong> Je begint met een lege database en vult die zelf. Hoe secuurder je invoert en hoe vaker je bij verschillende supermarkten winkelt, hoe betrouwbaarder je prijsvergelijking wordt.</p>
+      <p style="margin:0;">Lees de volledige uitleg op <a href="hoe-het-werkt.html">Hoe het werkt</a>.</p>
     </div>
 
     <h2>Contact</h2>
@@ -66,6 +142,7 @@
     <footer class="site-support-ft box">
       <strong>BoodschappenScan</strong><br>
       <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a><br>
+      <a href="home.html">Home</a> · <a href="hoe-het-werkt.html">Hoe het werkt</a> · <a href="index.html">Privacy</a><br>
       In de app: tab Meer → Support.
     </footer>
   </div>

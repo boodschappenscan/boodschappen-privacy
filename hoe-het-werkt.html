@@ -7,9 +7,9 @@
   <meta name="description" content="BoodschappenScan: je begint met een lege database en bouwt zelf een betrouwbaar prijsbeeld op — secuur invoeren, meerdere supermarkten, in de winkel of thuis.">
   <meta name="robots" content="index,follow">
   <style>
-    :root { --text: #163126; --muted: #4f6c60; --accent: #1b4d2e; --line: #d7e6df; --bg: #f7faf8; }
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif; color: var(--text); background: var(--bg); line-height: 1.55; }
-    .wrap { width: min(720px, 92vw); margin: 0 auto; padding: 40px 0 64px; }
+    :root { --text: #163126; --muted: #4f6c60; --accent: #1b4d2e; --accent-light: #2d7a4a; --line: #d7e6df; --bg: #f7faf8; --hero-bg: linear-gradient(145deg, #e8f3ec 0%, #f7faf8 45%, #eef6f1 100%); --font: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+    body { margin: 0; font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.55; }
+    .wrap { width: min(720px, 92vw); margin: 0 auto; padding: 36px 0 64px; }
     h1 { font-size: 1.75rem; margin: 0 0 8px; color: var(--accent); }
     .meta { color: var(--muted); font-size: 0.95rem; margin-bottom: 28px; }
     h2 { font-size: 1.15rem; margin: 28px 0 10px; color: var(--accent); }
@@ -19,23 +19,84 @@
     li { margin-bottom: 6px; }
     .box { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin: 20px 0; font-size: 0.92rem; color: var(--muted); }
     .box-accent { border-color: #b8d4c4; background: #f0f7f3; color: var(--text); }
-    .site-nav { font-size: 0.9rem; margin-bottom: 24px; color: var(--muted); }
-    .site-nav a { margin-right: 14px; }
+    .site-header {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 250, 248, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-header .header-inner {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    .brand img { width: 36px; height: 36px; border-radius: 9px; object-fit: cover; }
+    .site-nav { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.9rem; margin: 0; }
+    .site-nav a { text-decoration: none; color: var(--muted); }
+    .site-nav a:hover, .site-nav a.active { color: var(--accent); }
+    .site-nav a.active { font-weight: 600; }
+    .page-hero {
+      background: var(--hero-bg);
+      border-bottom: 1px solid var(--line);
+      padding: 40px 0 36px;
+    }
+    .page-hero-inner {
+      width: min(720px, 92vw);
+      margin: 0 auto;
+    }
+    .page-hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      line-height: 1.15;
+      margin: 0 0 10px;
+      color: var(--accent);
+    }
+    .page-hero .meta { margin: 0; }
     a { color: #27634a; }
     footer.site-ft { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--muted); }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="home.html">
+        <img src="assets/app-icon.png" alt="" width="36" height="36">
+        BoodschappenScan
+      </a>
+      <nav class="site-nav" aria-label="Hoofdmenu">
+        <a href="home.html">Home</a>
+        <a href="hoe-het-werkt.html" class="active">Hoe het werkt</a>
+        <a href="support.html">Support</a>
+        <a href="index.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <h1>Hoe BoodschappenScan werkt</h1>
+      <p class="meta">App: <strong>Boodschappen</strong> (BoodschappenScan) · Laatst bijgewerkt: 30 mei 2026</p>
+    </div>
+  </section>
+
   <div class="wrap">
-    <nav class="site-nav" aria-label="Site">
-      <a href="index.html">Privacy</a>
-      <a href="hoe-het-werkt.html"><strong>Hoe het werkt</strong></a>
-      <a href="support.html">Support</a>
-    </nav>
-
-    <h1>Hoe BoodschappenScan werkt</h1>
-    <p class="meta">App: <strong>Boodschappen</strong> (BoodschappenScan) · Laatst bijgewerkt: 30 mei 2026</p>
-
     <div class="box box-accent">
       <p style="margin:0;"><strong>Geen kant-en-klare prijslijst.</strong> BoodschappenScan is geen database met actuele supermarktprijzen van de hele markt. Je begint met een <strong>lege database</strong> en vult die zelf — product voor product, bon voor bon, supermarkt voor supermarkt. Hoe secuurder je invoert, hoe betrouwbaarder je vergelijking later wordt.</p>
     </div>
@@ -84,7 +145,7 @@
     <footer class="site-ft box">
       <strong>BoodschappenScan</strong><br>
       <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a><br>
-      <a href="support.html">Support</a> · <a href="index.html">Privacy</a>
+      <a href="home.html">Home</a> · <a href="support.html">Support</a> · <a href="index.html">Privacy</a>
     </footer>
   </div>
 </body>
