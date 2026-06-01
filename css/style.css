@@ -459,14 +459,6 @@ img {
   grid-column: span 2;
 }
 
-.features-grid .card.features-grid-centered:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-
-.features-grid .card.features-grid-centered:nth-child(5) {
-  grid-column: 4 / span 2;
-}
-
 .features-grid .card {
   display: flex;
   flex-direction: column;
@@ -1189,9 +1181,7 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .features-grid .card,
-  .features-grid .card.features-grid-centered:nth-child(4),
-  .features-grid .card.features-grid-centered:nth-child(5) {
+  .features-grid .card {
     grid-column: 1 / -1;
   }
 
