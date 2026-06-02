@@ -131,7 +131,7 @@ img {
   align-items: center;
 }
 
-.navbar ul li a {
+.navbar .main-menu ul li a {
   padding: 10px 20px;
   display: block;
   font-weight: 600;
@@ -139,23 +139,23 @@ img {
   color: var(--muted-color);
 }
 
-.navbar ul li a:hover {
+.navbar .main-menu ul li a:hover {
   color: var(--primary-color);
 }
 
-.navbar ul li a.active:not(.btn) {
+.navbar .main-menu ul li a.active:not(.btn) {
   color: var(--primary-color);
 }
 
-.navbar ul li a.btn.active {
+.navbar .main-menu ul li a.btn.active {
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
 }
 
-.navbar ul li:last-child a {
+.navbar .main-menu ul li:last-child a {
   margin-left: 10px;
 }
 
-.navbar ul li a i {
+.navbar .main-menu ul li a i {
   margin-right: 5px;
 }
 
@@ -1003,12 +1003,16 @@ img {
   position: fixed;
   top: 0;
   right: -300px;
-  width: 250px;
+  width: min(280px, 85vw);
   height: 100%;
   z-index: 100;
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-menu.active {
@@ -1016,29 +1020,64 @@ img {
 }
 
 .mobile-menu ul {
-  margin-top: 100px;
-  padding: 0 28px;
+  margin: 0;
+  padding-top: 96px;
+  padding-bottom: 32px;
+  padding-left: 24px;
+  padding-right: 24px;
+  /* Safari (iOS/macOS) voegt anders standaard inspringing toe aan lijsten */
+  -webkit-padding-start: 24px;
+  -webkit-padding-end: 24px;
+  width: 100%;
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
   text-align: left;
 }
 
 .mobile-menu ul li {
-  margin: 6px 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  -webkit-margin-start: 0;
+  margin-inline-start: 0;
+  -webkit-padding-start: 0;
+  padding-inline-start: 0;
+  text-align: left;
 }
 
 .mobile-menu ul li a {
   display: block;
-  padding: 10px 0;
-  font-size: 1.15rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  margin-inline-start: 0;
+  -webkit-margin-start: 0;
+  padding: 14px 0;
+  padding-left: 0;
+  padding-right: 0;
+  -webkit-padding-start: 0;
+  -webkit-padding-end: 0;
+  font-size: 1.1rem;
   font-weight: 600;
   text-align: left;
-  transition: 0.3s;
+  transition: color 0.2s ease;
   color: var(--muted-color);
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  align-self: stretch;
 }
 
 .mobile-menu ul li a:hover,
 .mobile-menu ul li a.active {
   color: var(--primary-color);
+}
+
+.mobile-menu ul li:last-child a {
+  margin-left: 0;
 }
 
 /* Screenshot lightbox (klik = 50% groter) */
@@ -1121,6 +1160,7 @@ img {
 
   .navbar .hamburger-button {
     display: block;
+    z-index: 110;
   }
 
   .hero .container {
