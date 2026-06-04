@@ -12,9 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const groupBody = group.querySelector('.faq-group-body');
       const icon = groupHeader.querySelector('i');
 
-      icon.classList.toggle('fa-plus');
-      icon.classList.toggle('fa-minus');
+      if (!groupBody) return;
+
       groupBody.classList.toggle('open');
+      if (icon) {
+        icon.classList.toggle('fa-plus');
+        icon.classList.toggle('fa-minus');
+      }
 
       const otherGroups = faqContainer.querySelectorAll('.faq-group');
 
@@ -23,9 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
           const otherGroupBody = otherGroup.querySelector('.faq-group-body');
           const otherIcon = otherGroup.querySelector('.faq-group-header i');
 
-          otherGroupBody.classList.remove('open');
-          otherIcon.classList.remove('fa-minus');
-          otherIcon.classList.add('fa-plus');
+          otherGroupBody?.classList.remove('open');
+          if (otherIcon) {
+            otherIcon.classList.remove('fa-minus');
+            otherIcon.classList.add('fa-plus');
+          }
         }
       });
     });
