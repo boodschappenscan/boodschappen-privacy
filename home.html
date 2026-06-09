@@ -1,400 +1,483 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BoodschappenScan — scan, vergelijk en bespaar</title>
-    <meta name="description" content="BoodschappenScan: scan bonnen, vergelijk supermarkten op basis van jouw eigen prijzen. Geen account, geen advertenties — alles op je iPhone.">
-    <meta name="robots" content="index,follow">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" href="assets/app-icon.png" type="image/png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <!-- App Store: https://apps.apple.com/nl/app/id6769793231 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BoodschappenScan — bonnen scannen, prijzen vergelijken</title>
+  <meta name="description" content="BoodschappenScan: bouw je eigen prijsbeeld op. Scan bonnen, vergelijk supermarkten, maak boodschappenlijsten. Alles lokaal op je iPhone.">
+  <meta name="robots" content="index,follow">
+  <style>
+    :root {
+      --text: #163126;
+      --muted: #4f6c60;
+      --accent: #1b4d2e;
+      --accent-light: #2d7a4a;
+      --line: #d7e6df;
+      --bg: #f7faf8;
+      --card: #ffffff;
+      --hero-bg: linear-gradient(145deg, #e8f3ec 0%, #f7faf8 45%, #eef6f1 100%);
+      --font: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    a { color: #27634a; }
+    .wrap { width: min(1080px, 92vw); margin: 0 auto; }
 
-    <nav class="navbar">
-      <div class="container">
-        <div class="logo">
-          <a href="home.html">
-            <img src="assets/app-icon.png" alt="BoodschappenScan">
-            BoodschappenScan
+    /* Nav */
+    .site-header {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 250, 248, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-header .header-inner {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    .brand img { width: 36px; height: 36px; border-radius: 9px; }
+    .site-nav { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.9rem; }
+    .site-nav a { text-decoration: none; color: var(--muted); }
+    .site-nav a:hover, .site-nav a.active { color: var(--accent); }
+    .site-nav a.active { font-weight: 600; }
+
+    /* Hero */
+    .hero {
+      background: var(--hero-bg);
+      padding: 48px 0 56px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 820px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-visual { order: -1; max-width: 280px; margin: 0 auto; }
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-size: clamp(1.85rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      margin: 0 0 16px;
+      color: var(--accent);
+    }
+    .hero-lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin: 0 0 24px;
+      max-width: 34em;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(27, 77, 46, 0.25);
+    }
+    .btn-secondary {
+      background: var(--card);
+      color: var(--accent);
+      border: 1px solid var(--line);
+    }
+
+    /* App Store — «binnenkort» (geen officiële Apple-badge tot live) */
+    .app-store-block { margin-bottom: 24px; }
+    .app-store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 18px 11px 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      max-width: 100%;
+    }
+    .app-store-badge--soon {
+      background: #2c2c2e;
+      color: #fff;
+      cursor: default;
+      opacity: 0.92;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .app-store-badge--live {
+      background: #000;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+    }
+    .app-store-badge--live:hover { transform: translateY(-1px); color: #fff; }
+    .app-store-badge-icon {
+      font-size: 1.75rem;
+      line-height: 1;
+      font-family: var(--font);
+    }
+    .app-store-badge-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .app-store-badge-text small {
+      font-size: 0.68rem;
+      font-weight: 500;
+      opacity: 0.88;
+      letter-spacing: 0.02em;
+    }
+    .app-store-badge-text strong { font-size: 1.05rem; font-weight: 600; }
+    .app-store-note {
+      margin: 10px 0 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      max-width: 28em;
+    }
+    .app-store-note a { font-weight: 600; }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .trust-row span::before { content: "✓ "; color: var(--accent-light); font-weight: 700; }
+
+    /* Phone mockup */
+    .phone-frame {
+      background: #111;
+      border-radius: 36px;
+      padding: 10px;
+      box-shadow: 0 24px 48px rgba(22, 49, 38, 0.18), 0 0 0 1px rgba(0,0,0,0.06);
+    }
+    .phone-frame img {
+      display: block;
+      width: 100%;
+      border-radius: 28px;
+    }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    section:nth-child(even) { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .section-head { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+    .section-head h2 { font-size: 1.65rem; margin: 0 0 10px; color: var(--accent); }
+    .section-head p { margin: 0; color: var(--muted); }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+    .feature:last-child { margin-bottom: 0; }
+    .feature.reverse .feature-text { order: 2; }
+    .feature.reverse .feature-shot { order: 1; }
+    @media (max-width: 760px) {
+      .feature, .feature.reverse { grid-template-columns: 1fr; }
+      .feature.reverse .feature-text, .feature.reverse .feature-shot { order: unset; }
+    }
+    .feature-text h3 { font-size: 1.25rem; margin: 0 0 10px; color: var(--accent); }
+    .feature-text p { margin: 0 0 12px; color: var(--muted); }
+    .feature-text ul { margin: 0; padding-left: 1.1rem; color: var(--muted); font-size: 0.95rem; }
+    .feature-text li { margin-bottom: 6px; }
+    .shot-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 12px;
+      max-width: 300px;
+      margin: 0 auto;
+      box-shadow: 0 8px 24px rgba(22, 49, 38, 0.06);
+    }
+    .shot-card img { width: 100%; border-radius: 14px; display: block; }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: #e8f3ec;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .badge-premium { background: #fff3e0; color: #9a5b00; }
+
+    /* Pillars */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 760px) { .pillars { grid-template-columns: 1fr; } }
+    .pillar {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px;
+    }
+    .pillar h3 { margin: 0 0 8px; font-size: 1.05rem; color: var(--accent); }
+    .pillar p { margin: 0; font-size: 0.92rem; color: var(--muted); }
+
+    /* CTA band */
+    .cta-band {
+      background: var(--accent);
+      color: #fff;
+      padding: 48px 0;
+      text-align: center;
+    }
+    .cta-band h2 { margin: 0 0 10px; font-size: 1.5rem; }
+    .cta-band p { margin: 0 0 22px; opacity: 0.92; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cta-band .btn-primary { background: #fff; color: var(--accent); }
+    .cta-band .btn-secondary { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
+
+    footer.site-ft {
+      padding: 32px 0 48px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    footer.site-ft a { margin: 0 8px; }
+  </style>
+</head>
+<body>
+  <!--
+    APP STORE LIVE ZETTEN
+    1. Verwijder het blok met id="app-store-soon".
+    2. Haal de comment-tags weg rond id="app-store-live" hieronder.
+    3. Vul de href in met je App Store-URL (App Store Connect → App → App Store-pagina → link kopiëren).
+  -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="home.html">
+        <img src="assets/app-icon.png" alt="" width="36" height="36">
+        BoodschappenScan
+      </a>
+      <nav class="site-nav" aria-label="Hoofdmenu">
+        <a href="home.html" class="active">Home</a>
+        <a href="hoe-het-werkt.html">Hoe het werkt</a>
+        <a href="support.html">Support</a>
+        <a href="index.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Voor iPhone · lokaal &amp; privé</span>
+        <h1>Bouw je eigen prijsbeeld op — supermarkt voor supermarkt</h1>
+        <p class="hero-lead">
+          BoodschappenScan is geen kant-en-klare prijslijst. Je scant bonnen, houdt prijzen bij
+          en ziet na verloop van tijd waar <em>jij</em> historisch het voordeligst uit bent.
+        </p>
+
+        <div class="app-store-block" id="app-store-soon">
+          <div class="app-store-badge app-store-badge--soon" role="status" aria-label="Binnenkort beschikbaar in de App Store">
+            <span class="app-store-badge-icon" aria-hidden="true">&#63743;</span>
+            <span class="app-store-badge-text">
+              <small>Binnenkort beschikbaar</small>
+              <strong>in de App Store</strong>
+            </span>
+          </div>
+          <p class="app-store-note">
+            BoodschappenScan wordt binnenkort gepubliceerd voor iPhone.
+            Tot die tijd: lees <a href="hoe-het-werkt.html">hoe het werkt</a>
+            of stel je vraag via <a href="support.html">support</a>.
+          </p>
+        </div>
+
+        <!--
+        <div class="app-store-block" id="app-store-live">
+          <a class="app-store-badge app-store-badge--live"
+             href="https://apps.apple.com/nl/app/idVUL_IN"
+             rel="noopener noreferrer">
+            <span class="app-store-badge-icon" aria-hidden="true">&#63743;</span>
+            <span class="app-store-badge-text">
+              <small>Download in de</small>
+              <strong>App Store</strong>
+            </span>
           </a>
         </div>
-        <div class="main-menu">
+        -->
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="hoe-het-werkt.html">Hoe het werkt</a>
+          <a class="btn btn-secondary" href="support.html">Support &amp; vragen</a>
+        </div>
+        <div class="trust-row">
+          <span>Geen account nodig</span>
+          <span>Geen advertenties</span>
+          <span>Data blijft op je iPhone</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-frame">
+          <img src="assets/screenshots/startscherm.webp" alt="Startscherm BoodschappenScan met supermarktkeuze" width="390" height="844" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Zo werkt het in de praktijk</h2>
+        <p>Kies je supermarkt, scan of voer je bon in, en bouw stap voor stap je eigen catalogus op.</p>
+      </div>
+
+      <article class="feature">
+        <div class="feature-text">
+          <span class="badge">Scannen</span>
+          <h3>Scan in de winkel of thuis op de bon</h3>
+          <p>Richt de camera op de streepjescode, of typ regels handmatig van je kassabon. Controleer naam, prijs, gewicht en categorie — hoe secuurder, hoe betrouwbaarder je vergelijking.</p>
           <ul>
-            <li><a href="home.html" class="active">Home</a></li>
-            <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
-            <li><a href="handleiding.html">Handleiding</a></li>
-            <li><a href="support.html">Support</a></li>
-            <li><a href="index.html">Privacy</a></li>
+            <li>Supermarkt kiezen vóór elke bon</li>
+            <li>Handmatige invoer als backup</li>
+            <li>Open Food Facts stelt soms een naam voor (jij beslist)</li>
           </ul>
         </div>
+        <div class="feature-shot">
+          <div class="shot-card">
+            <img src="assets/screenshots/scannen.webp" alt="Barcodescanner in BoodschappenScan" width="390" height="844" loading="lazy">
+          </div>
+        </div>
+      </article>
 
-        <button class="hamburger-button" aria-label="Menu openen">
-          <div class="hamburger-line"></div>
-          <div class="hamburger-line"></div>
-          <div class="hamburger-line"></div>
-        </button>
-        <div class="mobile-menu">
-          <ul>
-            <li><a href="home.html" class="active">Home</a></li>
-            <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
-            <li><a href="handleiding.html">Handleiding</a></li>
-            <li><a href="support.html">Support</a></li>
-            <li><a href="index.html">Privacy</a></li>
-          </ul>
+      <article class="feature reverse">
+        <div class="feature-text">
+          <span class="badge">Bonnen</span>
+          <h3>Al je kassabonnen op één plek</h3>
+          <p>Geschiedenis per maand, bon delen als afbeelding of PDF, en een widget met je laatste bon — alles lokaal op je toestel.</p>
+        </div>
+        <div class="feature-shot">
+          <div class="shot-card">
+            <img src="assets/screenshots/bonnen.webp" alt="Bonnenoverzicht en geschiedenis" width="390" height="844" loading="lazy">
+          </div>
+        </div>
+      </article>
+
+      <article class="feature">
+        <div class="feature-text">
+          <span class="badge">Lijsten</span>
+          <h3>Boodschappenlijsten met vergelijking</h3>
+          <p>Maak lijsten van je vaste producten en vergelijk bij welke supermarkt je historisch het voordeligst uit bent — op basis van <em>jouw</em> ingevoerde prijzen.</p>
+        </div>
+        <div class="feature-shot">
+          <div class="shot-card">
+            <img src="assets/screenshots/boodschappenlijst.webp" alt="Boodschappenlijst in de app" width="390" height="844" loading="lazy">
+          </div>
+        </div>
+      </article>
+
+      <article class="feature reverse">
+        <div class="feature-text">
+          <span class="badge">Vergelijken</span>
+          <h3>Prijsverschillen tussen winkels</h3>
+          <p>Winkel bij verschillende ketens en houd je bonnen serieus bij. Na verloop van tijd zie je duidelijker welke supermarkt voor jouw boodschappen over het algemeen de beste prijzen heeft.</p>
+        </div>
+        <div class="feature-shot">
+          <div class="shot-card">
+            <img src="assets/screenshots/vergelijken.webp" alt="Winkelvergelijking voor een boodschappenlijst" width="390" height="844" loading="lazy">
+          </div>
+        </div>
+      </article>
+
+      <article class="feature">
+        <div class="feature-text">
+          <span class="badge badge-premium">BoodschappenScan Volledig</span>
+          <h3>Prijsgeschiedenis per product</h3>
+          <p>Met de eenmalige upgrade zie je grafieken en maandstatistieken. Gratis kun je de app volledig proberen met royale limieten (3 lijsten, 200 producten, 40 bonnen).</p>
+        </div>
+        <div class="feature-shot">
+          <div class="shot-card">
+            <img src="assets/screenshots/prijsverloop.webp" alt="Prijsgeschiedenisgrafiek per product" width="390" height="844" loading="lazy">
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Waarom BoodschappenScan?</h2>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Jouw database</h3>
+          <p>Je begint leeg en vult zelf aan. Geen valse belofte van «alle supermarktprijzen live».</p>
+        </div>
+        <div class="pillar">
+          <h3>Meerdere winkels</h3>
+          <p>Hoe vaker je bij verschillende ketens invoert, hoe eerlijker je vergelijking wordt.</p>
+        </div>
+        <div class="pillar">
+          <h3>Privé by design</h3>
+          <p>Geen account, geen advertenties, geen tracking. Back-up maak je zelf wanneer jij wilt.</p>
         </div>
       </div>
-    </nav>
+    </div>
+  </section>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1 class="hero-heading text-xxl">
-            Scan, vergelijk en bespaar
-            <span class="hero-subline">op je boodschappen</span>
-          </h1>
-          <p class="hero-text text-md">
-            Jouw prijzen, jouw winkels. Geen kant-en-klare prijslijst: je vult zelf je catalogus
-            en ziet na verloop van tijd waar jij historisch het voordeligst uit bent. Alles lokaal op je iPhone.
-          </p>
-
-          <div class="app-store-block" id="app-store-live">
-            <a class="app-store-badge app-store-badge--live"
-               href="https://apps.apple.com/nl/app/id6769793231"
-               rel="noopener noreferrer">
-              <span class="app-store-badge-icon" aria-hidden="true">&#63743;</span>
-              <span class="app-store-badge-text">
-                <small>Download in de</small>
-                <strong>App Store</strong>
-              </span>
-            </a>
-            <p class="app-store-note">
-              Eerste keer? Bekijk de <a href="handleiding.html">app-handleiding</a>
-              of lees <a href="hoe-het-werkt.html">hoe het werkt</a>.
-            </p>
-          </div>
-
-          <div class="hero-buttons">
-            <a href="handleiding.html" class="btn btn-primary">App-handleiding</a>
-            <a href="hoe-het-werkt.html" class="btn">Hoe het werkt</a>
-          </div>
-          <div class="hero-trust">
-            <span>Geen account nodig</span>
-            <span>Geen advertenties</span>
-            <span>Data blijft op je iPhone</span>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="device-shot">
-            <img
-              src="assets/screenshots/startscherm.png"
-              alt="Startscherm BoodschappenScan"
-              class="app-screenshot"
-              width="844"
-              height="1811"
-              loading="eager"
-            >
-          </div>
-        </div>
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Vragen over de app?</h2>
+      <p>Lees hoe je een betrouwbaar prijsbeeld opbouwt, of neem contact op — we helpen je graag.</p>
+      <div class="hero-actions" style="justify-content:center;margin-bottom:0;">
+        <a class="btn btn-primary" href="hoe-het-werkt.html">Lees: Hoe het werkt</a>
+        <a class="btn btn-secondary" href="support.html">Naar support</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 3 stappen -->
-    <section class="steps bg-black">
-      <div class="container">
-        <div class="steps-header text-center">
-          <h2 class="text-xl steps-title">Zo werkt het in drie stappen</h2>
-          <p class="steps-lead">
-            Van supermarkt kiezen tot winkelvergelijking — alles op basis van wat jij zelf invoert.
-          </p>
-        </div>
-        <div class="steps-layout">
-          <ol class="steps-list">
-            <li class="step-item">
-              <span class="step-num" aria-hidden="true">1</span>
-              <div>
-                <h3>Scan in de winkel</h3>
-                <p>Kies je supermarkt, scan barcodes of voer regels handmatig in via Typen (inspreken kan ook).</p>
-              </div>
-            </li>
-            <li class="step-item">
-              <span class="step-num" aria-hidden="true">2</span>
-              <div>
-                <h3>Bewaar bonnen &amp; producten</h3>
-                <p>Al je kassabonnen en prijzen op één plek, lokaal op je toestel.</p>
-              </div>
-            </li>
-            <li class="step-item">
-              <span class="step-num" aria-hidden="true">3</span>
-              <div>
-                <h3>Vergelijk winkels</h3>
-                <p>Zie waar jij voor jouw vaste boodschappen historisch het voordeligst uit bent.</p>
-              </div>
-            </li>
-          </ol>
-          <div class="steps-visual">
-            <div class="device-shot">
-              <img
-                src="assets/screenshots/scannen.png"
-                alt="Barcodescanner in BoodschappenScan"
-                class="app-screenshot"
-                width="844"
-                height="1811"
-                loading="lazy"
-              >
-            </div>
-          </div>
-        </div>
-        <div class="steps-cta text-center">
-          <a href="handleiding.html" class="btn btn-primary">Stap-voor-stap handleiding</a>
-          <a href="hoe-het-werkt.html" class="btn">Hoe het werkt</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- App-functies -->
-    <section class="features bg-light">
-      <div class="container">
-        <h2 class="text-xl text-center section-heading">Wat je in de app doet</h2>
-        <p class="text-md text-center section-lead">
-          Supermarkt kiezen en beheren, lijsten maken, prijzen vergelijken en bonnen bijhouden — op basis van jouw eigen invoer.
-        </p>
-        <div class="features-grid">
-          <div class="card">
-            <div class="screenshot-wrap">
-              <div class="device-shot">
-                <img src="assets/screenshots/lijstje.png" alt="Boodschappenlijst" class="app-screenshot" width="844" height="1811" loading="lazy">
-              </div>
-            </div>
-            <h4>Boodschappenlijsten</h4>
-            <p>Lijsten van vaste producten en vergelijking op basis van jouw prijzen.</p>
-          </div>
-          <div class="card">
-            <div class="screenshot-wrap">
-              <div class="device-shot">
-                <img src="assets/screenshots/vergelijken.png" alt="Winkelvergelijking" class="app-screenshot" width="844" height="1811" loading="lazy">
-              </div>
-            </div>
-            <h4>Winkelvergelijking</h4>
-            <p>Per lijst zie je bij welke supermarkt jij historisch voordeliger uit bent.</p>
-          </div>
-          <div class="card">
-            <div class="screenshot-wrap">
-              <div class="device-shot">
-                <img src="assets/screenshots/bonnen.png" alt="Bonnenoverzicht" class="app-screenshot" width="844" height="1811" loading="lazy">
-              </div>
-            </div>
-            <h4>Bonnen &amp; geschiedenis</h4>
-            <p>Bonhistorie, PDF-export en widget. Maandterugblik: <strong>BoodschappenScan Volledig</strong>.</p>
-          </div>
-          <div class="card">
-            <div class="screenshot-wrap">
-              <div class="device-shot">
-                <img src="assets/screenshots/supermarktselecteren.png" alt="Supermarkt selecteren in BoodschappenScan" class="app-screenshot" width="844" height="1811" loading="lazy">
-              </div>
-            </div>
-            <h4>Supermarkt selecteren</h4>
-            <p>Kies vóór het scannen bij welke supermarkt je bent — zo kloppen je prijzen en vergelijkingen.</p>
-          </div>
-          <div class="card">
-            <div class="screenshot-wrap">
-              <div class="device-shot">
-                <img src="assets/screenshots/supermarktaanpassen.png" alt="Supermarkten beheren in BoodschappenScan" class="app-screenshot" width="844" height="1811" loading="lazy">
-              </div>
-            </div>
-            <h4>Supermarkten beheren</h4>
-            <p>Voeg winkels toe, hernoem of verwijder ze. Jouw vaste supermarkten op één plek.</p>
-          </div>
-          <div class="card">
-            <div class="screenshot-wrap">
-              <div class="device-shot">
-                <img src="assets/screenshots/prijsverloop.png" alt="Prijsverloop per product" class="app-screenshot" width="844" height="1811" loading="lazy">
-              </div>
-            </div>
-            <h4>Prijsverloop</h4>
-            <p>Kiloprijs en metingen per winkel. Prijsgeschiedenisgrafiek: <strong>BoodschappenScan Volledig</strong>.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="pricing" id="pricing">
-      <div class="container-sm">
-        <h2 class="pricing-heading text-xl text-center section-heading">Eerst proberen, later uitbreiden</h2>
-        <p class="pricing-subheading text-md text-center section-lead">
-          Geen abonnement. Eénmalige upgrade via Apple als je meer wilt.
-        </p>
-        <div class="pricing-grid">
-          <div class="card bg-light">
-            <div class="pricing-card-header">
-              <h4 class="pricing-heading text-xl">Basisversie</h4>
-              <p class="pricing-card-subheading">
-                Volledig bruikbaar met royale limieten. Ideaal om te ontdekken of de app bij je past.
-              </p>
-              <p class="pricing-card-price">
-                <span class="text-xl">€&nbsp;0</span>
-                <br>Geen creditcard nodig
-              </p>
-            </div>
-            <div class="pricing-card-body">
-              <ul>
-                <li><i class="fas fa-check"></i> Max. 3 boodschappenlijsten</li>
-                <li><i class="fas fa-check"></i> Max. 200 catalogusproducten</li>
-                <li><i class="fas fa-check"></i> Max. 40 opgeslagen bonnen</li>
-                <li><i class="fas fa-check"></i> Scannen, lijsten &amp; vergelijken</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="card bg-black">
-            <div class="pricing-card-header">
-              <h4 class="pricing-card-heading text-xl">BoodschappenScan Volledig</h4>
-              <p class="pricing-card-subheading">
-                Eenmalig €&nbsp;4,99 via Apple. Geen limieten plus prijsgeschiedenis en extra functies.
-              </p>
-              <p class="pricing-card-price">
-                <span class="text-xl">€ 4,99</span>
-                <br>Eenmalig · geen abonnement
-              </p>
-            </div>
-            <div class="pricing-card-body">
-              <p>Alles uit de basisversie, plus:</p>
-              <ul>
-                <li><i class="fas fa-check"></i> Onbeperkte lijsten, producten &amp; bonnen</li>
-                <li><i class="fas fa-check"></i> Prijsgeschiedenis per product</li>
-                <li><i class="fas fa-check"></i> Lijstsjablonen &amp; budget per lijst</li>
-              </ul>
-              <a href="support.html" class="btn btn-primary btn-block">Meer over Volledig</a>
-            </div>
-          </div>
-        </div>
-        <p class="pricing-footer text-center">
-          Terugbetaling via Apple (<a href="https://reportaproblem.apple.com" rel="noopener noreferrer">reportaproblem.apple.com</a>).
-          Vragen over aankoop? <a href="support.html">Support</a>.
-        </p>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq bg-light">
-      <div class="container-sm">
-        <h2 class="text-xl text-center section-heading">Veelgestelde vragen</h2>
-        <div class="faq-content">
-          <div class="faq-group">
-            <div class="faq-group-header">
-              <h4 class="text-md">
-                Is dit een kant-en-klare prijslijst van alle supermarkten?
-              </h4>
-              <i class="fas fa-minus"></i>
-            </div>
-            <div class="faq-group-body open">
-              <p>
-                Nee — jij bouwt je eigen catalogus op. Lees <a href="hoe-het-werkt.html">hoe het werkt</a>
-                voor de achtergrond, of volg de <a href="handleiding.html">app-handleiding</a> stap voor stap.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-group">
-            <div class="faq-group-header">
-              <h4 class="text-md">Waar blijven mijn gegevens?</h4>
-              <i class="fas fa-plus"></i>
-            </div>
-            <div class="faq-group-body">
-              <p>
-                Op je iPhone. Geen account, geen advertenties, geen tracking.
-                Zelf back-up maken kan via de app. Zie onze <a href="index.html">privacyverklaring</a>.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-group">
-            <div class="faq-group-header">
-              <h4 class="text-md">Wat is het verschil tussen Gratis en Volledig?</h4>
-              <i class="fas fa-plus"></i>
-            </div>
-            <div class="faq-group-body">
-              <p>
-                Zie het overzicht hierboven onder <a href="#pricing">Eerst proberen, later uitbreiden</a>.
-                Vragen over aankoop of herstellen? <a href="support.html">Support</a>.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-group">
-            <div class="faq-group-header">
-              <h4 class="text-md">Wanneer is de app beschikbaar?</h4>
-              <i class="fas fa-plus"></i>
-            </div>
-            <div class="faq-group-body">
-              <p>
-                BoodschappenScan staat in de <a href="https://apps.apple.com/nl/app/id6769793231" rel="noopener noreferrer">App Store voor iPhone</a>.
-                Vragen? Mail <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a>.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-band bg-dark">
-      <div class="container-sm text-center">
-        <h2 class="text-xl cta-title">Nog vragen?</h2>
-        <p class="cta-lead">
-          Bekijk de handleiding met screenshots, of stel je vraag — we helpen je graag.
-        </p>
-        <div class="cta-buttons">
-          <a href="handleiding.html" class="btn btn-primary">App-handleiding</a>
-          <a href="support.html" class="btn btn-light">Support</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer bg-black">
-      <div class="container">
-        <div class="footer-simple">
-          <div class="footer-brand">
-            <a href="home.html">
-              <img src="assets/app-icon.png" alt="" width="44" height="44">
-              <strong>BoodschappenScan</strong>
-            </a>
-            <p>Scan, vergelijk en bespaar. Alles lokaal op je iPhone.</p>
-            <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a>
-          </div>
-          <div class="footer-links">
-            <ul>
-              <li><a href="home.html">Home</a></li>
-              <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
-              <li><a href="handleiding.html">Handleiding</a></li>
-              <li><a href="support.html">Support</a></li>
-              <li><a href="index.html">Privacy</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          &copy; BoodschappenScan · Made in NL
-        </div>
-      </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-  </body>
+  <footer class="site-ft">
+    <div class="wrap">
+      <strong>BoodschappenScan</strong><br>
+      <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a><br><br>
+      <a href="home.html">Home</a>
+      <a href="hoe-het-werkt.html">Hoe het werkt</a>
+      <a href="support.html">Support</a>
+      <a href="index.html">Privacyverklaring</a>
+    </div>
+  </footer>
+</body>
 </html>

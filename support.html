@@ -6,122 +6,119 @@
   <title>Support – BoodschappenScan</title>
   <meta name="description" content="Support en contact voor BoodschappenScan — vragen, hulp en feedback.">
   <meta name="robots" content="index,follow">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="assets/app-icon.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --text: #163126; --muted: #4f6c60; --accent: #1b4d2e; --line: #d7e6df; --bg: #f7faf8; --font: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+    body { margin: 0; font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.55; }
+    .wrap { width: min(720px, 92vw); margin: 0 auto; padding: 40px 0 64px; }
+    h1 { font-size: 1.75rem; margin: 0 0 8px; color: var(--accent); }
+    .meta { color: var(--muted); font-size: 0.95rem; margin-bottom: 28px; }
+    h2 { font-size: 1.15rem; margin: 28px 0 10px; color: var(--accent); }
+    p { margin: 0 0 12px; }
+    ul { padding-left: 1.2rem; margin: 0 0 12px; }
+    li { margin-bottom: 6px; }
+    .box { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin: 20px 0; font-size: 0.92rem; color: var(--muted); }
+    .box-accent { border-color: #b8d4c4; background: #f0f7f3; color: var(--text); }
+    .box-accent h2 { margin-top: 0; font-size: 1.1rem; }
+    .site-header {
+      position: -webkit-sticky;
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(247, 250, 248, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-header .header-inner {
+      width: min(1080px, 92vw); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px 0; flex-wrap: wrap;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text);
+      font-weight: 700; font-size: 1.05rem;
+    }
+    .brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .site-nav { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.9rem; margin: 0; }
+    .site-nav a { text-decoration: none; color: var(--muted); margin-right: 0; }
+    .site-nav a:hover, .site-nav a.active { color: var(--accent); }
+    .site-nav a.active { font-weight: 600; }
+    .back-home { margin: 0 0 22px; font-size: 0.9rem; }
+    .back-home a { font-weight: 600; text-decoration: none; }
+    .back-home a:hover { text-decoration: underline; }
+    a { color: #27634a; }
+    footer.site-support-ft { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--muted); }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <div class="logo">
-        <a href="home.html">
-          <img src="assets/app-icon.png" alt="BoodschappenScan">
-          BoodschappenScan
-        </a>
-      </div>
-      <div class="main-menu">
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
-          <li><a href="handleiding.html">Handleiding</a></li>
-          <li><a href="support.html" class="active">Support</a></li>
-          <li><a href="index.html">Privacy</a></li>
-        </ul>
-      </div>
-      <button class="hamburger-button" aria-label="Menu openen">
-        <div class="hamburger-line"></div>
-        <div class="hamburger-line"></div>
-        <div class="hamburger-line"></div>
-      </button>
-      <div class="mobile-menu">
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
-          <li><a href="handleiding.html">Handleiding</a></li>
-          <li><a href="support.html" class="active">Support</a></li>
-          <li><a href="index.html">Privacy</a></li>
-        </ul>
-      </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="home.html">
+        <img src="assets/app-icon.png" alt="" width="32" height="32">
+        BoodschappenScan
+      </a>
+      <nav class="site-nav" aria-label="Site">
+        <a href="home.html">Home</a>
+        <a href="index.html">Privacy</a>
+        <a href="hoe-het-werkt.html">Hoe het werkt</a>
+        <a href="support.html" class="active">Support</a>
+      </nav>
     </div>
-  </nav>
+  </header>
+  <div class="wrap">
+    <p class="back-home"><a href="home.html">← Terug naar homepage</a></p>
 
-  <section class="page-hero">
-    <div class="container-md">
-      <h1 class="text-xl" style="margin:0;">Support</h1>
-      <p class="meta">App: <strong>Boodschappen</strong> (BoodschappenScan)</p>
+    <h1>Support</h1>
+    <p class="meta">App: <strong>Boodschappen</strong> (BoodschappenScan)</p>
+
+    <div class="box">
+      Heb je een vraag over de app, loop je ergens tegenaan, of wil je feedback geven? Neem contact op — we helpen je graag verder. Bekijk ook de <a href="home.html">homepage</a> met screenshots van de app.
     </div>
-  </section>
 
-  <div class="content-page">
-    <div class="container-md">
-      <div class="box box-accent">
-        <p style="margin:0 0 8px;">Heb je een vraag, loop je ergens tegenaan, of wil je feedback geven? Mail ons — we helpen je graag.</p>
-        <p style="margin:0;"><strong>Nieuw bij de app?</strong> <a href="handleiding.html">App-handleiding</a> (screenshots) · <a href="hoe-het-werkt.html">Hoe het werkt</a> (achtergrond)</p>
-      </div>
-
-      <h2>Contact</h2>
-      <p>E-mail: <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a></p>
-      <p>We reageren zo snel mogelijk. Vermeld bij voorkeur je iOS-versie en appversie (te zien onder tab Meer → Over).</p>
-
-      <h2>BoodschappenScan Volledig (in-app aankoop)</h2>
-      <div class="box">
-        <p style="margin:0 0 10px;">Eenmalige aankoop via Apple (geen abonnement; doorgaans €&nbsp;4,99). Wat je krijgt en wat gratis blijft: <a href="home.html#pricing">prijsoverzicht op de homepage</a>.</p>
-        <p style="margin:0;"><strong>Aankoop herstellen:</strong> tab Meer → BoodschappenScan Volledig → Aankoop herstellen (zelfde Apple ID als bij de aankoop). <strong>Terugbetaling:</strong> alleen via Apple — <a href="https://reportaproblem.apple.com" rel="noopener noreferrer">reportaproblem.apple.com</a>.</p>
-      </div>
-
-      <h2>Hulp in de app</h2>
-      <ul>
-        <li><strong>Handleiding</strong> — <a href="handleiding.html">online met screenshots</a> (aanbevolen); in de app: tab Meer → Handleiding (kort, met links)</li>
-        <li><strong>Rondleiding</strong> — tab Meer → Rondleiding nu bekijken</li>
-        <li><strong>Back-up</strong> — tab Meer → Back-up maken (vóór je de app verwijdert)</li>
-      </ul>
-
-      <h2>Veelgestelde onderwerpen</h2>
-      <ul>
-        <li><strong>Data kwijt na verwijderen?</strong> iOS wist app-gegevens bij deïnstallatie. Maak vooraf een back-up via tab Meer → Back-up maken.</li>
-        <li><strong>Upgrade werkt niet?</strong> Gebruik «Aankoop herstellen» met hetzelfde Apple ID als bij de aankoop.</li>
-        <li><strong>Barcode niet herkend?</strong> Tik in de scanner op <strong>Typen</strong> en vul de regel handmatig in (inspreken via het microfoon-icoon kan ook), of kies het product via <strong>Catalogus</strong>. De app onthoudt je invoer voor volgende keren.</li>
-        <li><strong>iCloud-back-up?</strong> Als iCloud Drive aan staat, kan de app automatisch een back-up op iCloud Drive zetten (tab Meer). Dat is optioneel — er gaat niets naar servers van de ontwikkelaar.</li>
-        <li><strong>PDF-export stuurt meerdere bestanden?</strong> Deel alleen het PDF-overzicht. Een JSON-back-up hoort niet mee bij een maand- of weekexport — maak back-ups apart via tab Meer.</li>
-        <li><strong>Prijzen vergelijken tussen winkels?</strong> Scan hetzelfde product (of een variant met dezelfde naam) bij verschillende supermarkten. Open een lijst: sectie <strong>Waar is je lijst het voordeligst?</strong> → <strong>Bekijk volledige vergelijking</strong>. Per product: <strong>Vergelijk dit artikel per winkel</strong>. Kiloprijs telt mee waar gewicht of inhoud bekend is.</li>
-      </ul>
-
-      <h2>Privacy &amp; voorwaarden</h2>
-      <p>Hoe de app omgaat met je gegevens staat in de <a href="index.html">privacyverklaring</a>.</p>
-      <p>Gebruiksvoorwaarden (Apple Standard EULA): <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" rel="noopener noreferrer">apple.com/legal/…/stdeula</a></p>
-
+    <div class="box box-accent">
+      <p style="margin:0 0 10px;"><strong>Nieuw bij BoodschappenScan?</strong> Je begint met een lege database en vult die zelf. Hoe secuurder je invoert en hoe vaker je bij verschillende supermarkten winkelt, hoe betrouwbaarder je prijsvergelijking wordt.</p>
+      <p style="margin:0;">Lees de volledige uitleg op <a href="hoe-het-werkt.html">Hoe het werkt</a>.</p>
     </div>
+
+    <h2>Contact</h2>
+    <p>E-mail: <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a></p>
+    <p>We reageren zo snel mogelijk. Vermeld bij voorkeur je iOS-versie en appversie (te zien onder tab Meer → Over).</p>
+
+    <h2>BoodschappenScan Volledig (in-app aankoop)</h2>
+    <div class="box">
+      <p style="margin:0 0 10px;"><strong>BoodschappenScan Volledig</strong> is een <strong>eenmalige aankoop</strong> via Apple (geen abonnement). De prijs staat in de App Store op het moment van aankoop (doorgaans €&nbsp;4,99).</p>
+      <p style="margin:0 0 10px;">Gratis kun je de app volledig gebruiken met limieten: max. 3 boodschappenlijsten, 200 catalogusproducten en 40 opgeslagen bonnen. Met Volledig vervallen die limieten; je krijgt o.a. prijsgeschiedenisgrafiek, lijstsjablonen en budget per lijst.</p>
+      <p style="margin:0;"><strong>Aankoop herstellen:</strong> tab Meer → BoodschappenScan Volledig → Aankoop herstellen (zelfde Apple ID als bij de aankoop). <strong>Terugbetaling:</strong> alleen via Apple — <a href="https://reportaproblem.apple.com" rel="noopener noreferrer">reportaproblem.apple.com</a>.</p>
+    </div>
+
+    <h2>Hulp in de app</h2>
+    <ul>
+      <li><strong>Handleiding</strong> — tab Meer → Handleiding</li>
+      <li><strong>Rondleiding</strong> — tab Meer → Rondleiding nu bekijken</li>
+      <li><strong>Back-up</strong> — tab Meer → Back-up maken (vóór je de app verwijdert)</li>
+      <li><strong>Aankoop herstellen</strong> — tab Meer → BoodschappenScan Volledig → Aankoop herstellen</li>
+    </ul>
+
+    <h2>Veelgestelde onderwerpen</h2>
+    <ul>
+      <li><strong>Data kwijt na verwijderen?</strong> iOS wist app-gegevens bij deïnstallatie. Maak vooraf een back-up via tab Meer → Back-up maken.</li>
+      <li><strong>Upgrade werkt niet?</strong> Gebruik «Aankoop herstellen» met hetzelfde Apple ID als bij de aankoop.</li>
+      <li><strong>Barcode niet herkend?</strong> Voeg het product handmatig toe of kies het uit Producten; de app onthoudt je invoer voor volgende keren.</li>
+      <li><strong>iCloud-back-up?</strong> Als iCloud Drive aan staat, kan de app automatisch een back-up op iCloud Drive zetten (tab Meer). Dat is optioneel — er gaat niets naar servers van de ontwikkelaar.</li>
+      <li><strong>PDF-export stuurt meerdere bestanden?</strong> Deel alleen het PDF-overzicht. Een JSON-back-up hoort niet mee bij een maand- of weekexport — maak back-ups apart via tab Meer.</li>
+      <li><strong>Prijzen vergelijken tussen winkels?</strong> Scan hetzelfde product bij verschillende supermarkten. Zelfde artikel maar andere barcode? Tab Producten → product → Bewerk product → <strong>Koppel vergelijkbaar product</strong>. Op tab Lijsten → Vergelijk met diverse winkels zie je waar je historisch voordeliger uit bent (kiloprijs waar gewicht bekend is).</li>
+      <li><strong>Koppeling ongedaan maken?</strong> Tab Producten → product → menu (⋯) → Bewerk product → rode knop <strong>Ontkoppelen</strong> onderaan. Producten blijven in je catalogus; alleen de vergelijkingskoppeling verdwijnt.</li>
+    </ul>
+
+    <h2>Privacy &amp; voorwaarden</h2>
+    <p>Hoe de app omgaat met je gegevens staat in de <a href="index.html">privacyverklaring</a>.</p>
+    <p>Gebruiksvoorwaarden (Apple Standard EULA): <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" rel="noopener noreferrer">apple.com/legal/…/stdeula</a></p>
+
+    <footer class="site-support-ft box">
+      <strong>BoodschappenScan</strong><br>
+      <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a><br>
+      <a href="home.html">Home</a> · <a href="hoe-het-werkt.html">Hoe het werkt</a> · <a href="index.html">Privacy</a><br>
+      In de app: tab Meer → Support.
+    </footer>
   </div>
-
-  <footer class="footer bg-black">
-    <div class="container">
-      <div class="footer-simple">
-        <div class="footer-brand">
-          <a href="home.html">
-            <img src="assets/app-icon.png" alt="" width="44" height="44">
-            <strong>BoodschappenScan</strong>
-          </a>
-          <p>Scan, vergelijk en bespaar. Alles lokaal op je iPhone.</p>
-          <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a>
-        </div>
-        <div class="footer-links">
-          <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="hoe-het-werkt.html">Hoe het werkt</a></li>
-            <li><a href="handleiding.html">Handleiding</a></li>
-            <li><a href="support.html">Support</a></li>
-            <li><a href="index.html">Privacy</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        &copy; BoodschappenScan · Made in NL
-      </div>
-    </div>
-  </footer>
-  <script src="js/main.js"></script>
 </body>
 </html>
