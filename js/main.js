@@ -44,13 +44,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.querySelector('.mobile-menu');
 
   if (hamburgerButton && mobileMenu) {
-    hamburgerButton.addEventListener('click', () =>
-      mobileMenu.classList.toggle('active')
-    );
+    const closeMenu = () => {
+      mobileMenu.classList.remove('active');
+      hamburgerButton.classList.remove('is-active');
+      hamburgerButton.setAttribute('aria-expanded', 'false');
+    };
+
+    hamburgerButton.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('active');
+      hamburgerButton.classList.toggle('is-active', isOpen);
+      hamburgerButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
   }
 });
 
-// Screenshot lightbox — klik op telefoon = 50% groter
+// Navbar: schaduw bij scrollen
+document.addEventListener('DOMContentLoaded', () => {
+  const navbar = document.querySelector('.navbar');
+  if (!navbar) return;
+
+  const updateNavbar = () => {
+    navbar.classList.toggle('is-scrolled', window.scrollY > 12);
+  };
+
+  updateNavbar();
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+});
+
+// Screenshot lightbox — klik op telefoon = vergroten
 document.addEventListener('DOMContentLoaded', () => {
   const zoomWrappers = document.querySelectorAll('.device-shot, .phone-frame');
   if (!zoomWrappers.length) return;
@@ -136,15 +161,25 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Subtiele scroll-animaties
+// Scroll-animaties en subtiele beweging
 document.addEventListener('DOMContentLoaded', () => {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const heroParts = document.querySelectorAll('.hero .hero-content, .hero .hero-visual');
   heroParts.forEach((el, index) => {
     el.classList.add('reveal');
     el.style.transitionDelay = `${index * 0.12}s`;
-    requestAnimationFrame(() => el.classList.add('is-visible'));
+    if (!reducedMotion) {
+      requestAnimationFrame(() => el.classList.add('is-visible'));
+    } else {
+      el.classList.add('is-visible');
+    }
+  });
+
+  document.querySelectorAll('.hero-trust span').forEach((el, index) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = `${0.28 + index * 0.08}s`;
+    if (reducedMotion) el.classList.add('is-visible');
   });
 
   const staggerGroups = [
@@ -152,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { selector: '.features-grid .card', step: 0.1 },
     { selector: '.pricing-grid .card', step: 0.12 },
     { selector: '.faq-group', step: 0.06 },
+    { selector: '.guide-step', step: 0.06 },
   ];
 
   const revealItems = document.querySelectorAll(
@@ -159,17 +195,30 @@ document.addEventListener('DOMContentLoaded', () => {
       '.features .section-heading, .features .section-lead, ' +
       '.pricing .container-sm > .section-heading, .pricing .container-sm > .section-lead, .pricing-footer, ' +
       '.faq .section-heading, ' +
-      '.cta-band .cta-title, .cta-band .cta-lead, .cta-band .cta-buttons'
+      '.cta-band .cta-title, .cta-band .cta-lead, .cta-band .cta-buttons, ' +
+      '.page-hero .container-md > *, .page-hero .container > *, ' +
+      '.guide-intro .box, .guide-toc, ' +
+      '.content-page .container-md > .box, .content-page .container > .box, ' +
+      '.footer-brand, .footer-links'
   );
 
   staggerGroups.forEach(({ selector, step }) => {
     document.querySelectorAll(selector).forEach((el, index) => {
       el.classList.add('reveal');
-      el.style.transitionDelay = `${index * step}s`;
+      if (step > 0) el.style.transitionDelay = `${index * step}s`;
     });
   });
 
   revealItems.forEach((el) => el.classList.add('reveal'));
+
+  document.querySelectorAll('.text-center.section-heading').forEach((heading) => {
+    heading.classList.add('reveal');
+  });
+
+  if (reducedMotion) {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -179,10 +228,29 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.12, rootMargin: '0px 0px -32px 0px' }
+    { threshold: 0.1, rootMargin: '0px 0px -24px 0px' }
   );
 
   document
     .querySelectorAll('.reveal:not(.is-visible)')
     .forEach((el) => observer.observe(el));
+
+  // Lichte parallax op hero-kolom (alleen desktop; niet op device-shot — daar draait float-animatie)
+  const heroVisual = document.querySelector('.hero .hero-visual');
+  if (heroVisual && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let ticking = false;
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const offset = Math.min(window.scrollY * 0.05, 28);
+          heroVisual.style.transform = `translateY(${offset}px)`;
+          ticking = false;
+        });
+      },
+      { passive: true }
+    );
+  }
 });

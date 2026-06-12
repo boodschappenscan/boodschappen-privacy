@@ -97,12 +97,26 @@ img {
 /* Navbar */
 
 .navbar {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 20px;
   position: sticky;
   top: 0;
   z-index: 200;
   border-bottom: 1px solid var(--line-color);
+  transition:
+    box-shadow 0.35s ease,
+    padding 0.35s ease,
+    background-color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.navbar.is-scrolled {
+  padding: 14px 20px;
+  border-bottom-color: transparent;
+  box-shadow: 0 8px 28px rgba(22, 49, 38, 0.08);
+  background-color: rgba(255, 255, 255, 0.97);
 }
 
 .navbar .container {
@@ -135,8 +149,28 @@ img {
   padding: 10px 20px;
   display: block;
   font-weight: 600;
-  transition: 0.5s;
+  transition: color 0.25s ease;
   color: var(--muted-color);
+  position: relative;
+}
+
+.navbar .main-menu ul li a::after {
+  content: '';
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary-light), var(--primary-color));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+}
+
+.navbar .main-menu ul li a:hover::after,
+.navbar .main-menu ul li a.active::after {
+  transform: scaleX(1);
 }
 
 .navbar .main-menu ul li a:hover {
@@ -173,6 +207,40 @@ img {
   justify-content: space-between;
   gap: 32px;
   padding: 40px 30px 32px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero .container::before,
+.hero .container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero .container::before {
+  width: min(420px, 70vw);
+  height: min(420px, 70vw);
+  top: -120px;
+  right: -80px;
+  background: radial-gradient(circle, rgba(45, 122, 74, 0.14) 0%, transparent 68%);
+}
+
+.hero .container::after {
+  width: min(280px, 50vw);
+  height: min(280px, 50vw);
+  bottom: -100px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(27, 77, 46, 0.1) 0%, transparent 70%);
+}
+
+.hero .hero-content,
+.hero .hero-visual {
+  position: relative;
+  z-index: 1;
 }
 
 .hero .hero-content {
@@ -592,12 +660,19 @@ img {
 }
 
 .faq .faq-group .faq-group-body {
-  display: none;
+  display: grid;
+  grid-template-rows: 0fr;
   color: var(--muted-color);
+  transition: grid-template-rows 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq .faq-group .faq-group-body > p {
+  overflow: hidden;
+  margin: 0;
 }
 
 .faq .faq-group .faq-group-body.open {
-  display: block;
+  grid-template-rows: 1fr;
 }
 
 /* Footer */
@@ -694,6 +769,20 @@ img {
   background: linear-gradient(145deg, #e8f3ec 0%, #f7faf8 45%, #eef6f1 100%);
   border-bottom: 1px solid var(--line-color);
   padding: 48px 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  top: -140px;
+  right: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(45, 122, 74, 0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .page-hero h1 {
@@ -783,6 +872,7 @@ img {
   color: black;
   border-radius: 10px;
   padding: 20px;
+  border: 1px solid rgba(215, 230, 223, 0.65);
 }
 
 /* Buttons */
@@ -811,17 +901,94 @@ img {
     scroll-behavior: smooth;
   }
 
+  @keyframes blob-drift {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    100% {
+      transform: translate(-18px, 14px) scale(1.06);
+    }
+  }
+
+  @keyframes float-phone {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes fade-up-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero .container::before {
+    animation: blob-drift 14s ease-in-out infinite alternate;
+  }
+
+  .hero .container::after {
+    animation: blob-drift 18s ease-in-out infinite alternate-reverse;
+  }
+
+  .steps-visual .device-shot {
+    animation: float-phone 6.5s ease-in-out infinite;
+    animation-delay: 0.8s;
+  }
+
+  .cta-band.bg-dark {
+    background: linear-gradient(
+      135deg,
+      var(--green-mid) 0%,
+      #1f6340 45%,
+      var(--green-dark) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradient-shift 14s ease infinite;
+  }
+
   .reveal {
     opacity: 0;
     transform: translateY(18px);
     transition:
-      opacity 0.65s ease,
-      transform 0.65s ease;
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+      opacity 0.55s ease,
+      transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-scale.is-visible {
+    opacity: 1;
+    transform: scale(1);
   }
 
   .hero .hero-visual.reveal {
@@ -832,10 +999,37 @@ img {
     transform: translateY(0) scale(1);
   }
 
-  .features-grid .card {
+  .hero .hero-visual.reveal.is-visible .device-shot {
+    animation: float-phone 5.5s ease-in-out infinite;
+  }
+
+  .text-center.section-heading::after {
+    content: '';
+    display: block;
+    width: 52px;
+    height: 3px;
+    border-radius: 2px;
+    margin: 14px auto 0;
+    background: linear-gradient(90deg, var(--primary-light), var(--primary-color));
+    transform: scaleX(0);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+  }
+
+  .text-center.section-heading.reveal.is-visible::after,
+  .text-center.section-heading.is-accent-visible::after {
+    transform: scaleX(1);
+  }
+
+  .steps.bg-black .text-center.section-heading::after {
+    background: linear-gradient(90deg, #8fd4a8, #d4e8dc);
+  }
+
+  .features-grid .card,
+  .pricing-grid .card {
     transition:
-      transform 0.28s ease,
-      box-shadow 0.28s ease;
+      transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.32s ease,
+      border-color 0.32s ease;
   }
 
   .device-shot.is-zoomable,
@@ -847,7 +1041,12 @@ img {
     transition:
       opacity 0.25s ease,
       transform 0.25s ease,
-      background-color 0.25s ease;
+      background-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .btn-primary {
+    box-shadow: 0 4px 14px rgba(27, 77, 46, 0.22);
   }
 
   .btn:active {
@@ -855,13 +1054,50 @@ img {
   }
 
   .step-num {
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .step-item.reveal.is-visible .step-num {
+    box-shadow: 0 6px 16px rgba(45, 122, 74, 0.25);
+  }
+
+  .faq .faq-group-header i {
+    transition: transform 0.3s ease, color 0.25s ease;
+  }
+
+  .content-page .box,
+  .guide-intro .box {
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+  .guide-step.reveal.is-visible .guide-step-num {
+    box-shadow: 0 6px 16px rgba(27, 77, 46, 0.28);
+  }
+
+  .hamburger-button.is-active .hamburger-line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .hamburger-button.is-active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-button.is-active .hamburger-line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  .hamburger-button .hamburger-line {
+    transition: transform 0.28s ease, opacity 0.2s ease;
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .features-grid .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 32px rgba(22, 49, 38, 0.1);
+    .features-grid .card:hover,
+    .pricing-grid .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(22, 49, 38, 0.12);
+      border-color: rgba(184, 212, 196, 0.9);
     }
 
     .device-shot.is-zoomable:hover,
@@ -874,9 +1110,26 @@ img {
       transform: translateY(-2px);
     }
 
-    .step-item:hover .step-num {
-      transform: scale(1.06);
+    .btn-primary:hover {
+      box-shadow: 0 8px 22px rgba(27, 77, 46, 0.28);
     }
+
+    .step-item:hover .step-num {
+      transform: scale(1.08);
+    }
+
+    .content-page .box:hover,
+    .guide-intro .box:hover {
+      box-shadow: 0 10px 28px rgba(22, 49, 38, 0.07);
+    }
+
+    .navbar .logo a:hover img {
+      transform: scale(1.04) rotate(-2deg);
+    }
+  }
+
+  .navbar .logo img {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
 
