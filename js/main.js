@@ -44,6 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.querySelector('.mobile-menu');
   const menuBackdrop = document.querySelector('.mobile-menu-backdrop');
 
+  // Buiten sticky navbar: iOS Safari klemt fixed menu anders in de balk (kruis wel, menu niet).
+  if (menuBackdrop && menuBackdrop.parentElement !== document.body) {
+    document.body.appendChild(menuBackdrop);
+  }
+  if (mobileMenu && mobileMenu.parentElement !== document.body) {
+    document.body.appendChild(mobileMenu);
+  }
+
   if (hamburgerButton && mobileMenu) {
     const setMenuOpen = (isOpen) => {
       mobileMenu.classList.toggle('active', isOpen);
@@ -54,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (menuBackdrop) {
         menuBackdrop.hidden = !isOpen;
       }
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      document.body.classList.toggle('menu-open', isOpen);
     };
 
     const closeMenu = () => setMenuOpen(false);
