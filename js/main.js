@@ -54,18 +54,35 @@ document.addEventListener('DOMContentLoaded', () => {
   beschermMobielMenuTegenReveal();
 
   if (hamburgerButton && mobileMenu) {
+    let hamburgerNaMenuTimer = null;
+
     const setMenuOpen = (isOpen) => {
-      mobileMenu.classList.toggle('active', isOpen);
-      hamburgerButton.classList.toggle('is-active', isOpen);
-      hamburgerButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      hamburgerButton.setAttribute('aria-label', isOpen ? 'Menu sluiten' : 'Menu openen');
-      menuBackdrop?.classList.toggle('is-visible', isOpen);
-      if (menuBackdrop) {
-        menuBackdrop.hidden = !isOpen;
+      if (hamburgerNaMenuTimer !== null) {
+        clearTimeout(hamburgerNaMenuTimer);
+        hamburgerNaMenuTimer = null;
       }
-      document.body.classList.toggle('menu-open', isOpen);
+
       if (isOpen) {
         beschermMobielMenuTegenReveal();
+        menuBackdrop?.classList.add('is-visible');
+        if (menuBackdrop) menuBackdrop.hidden = false;
+        mobileMenu.classList.add('active');
+        document.body.classList.add('menu-open');
+        hamburgerButton.setAttribute('aria-expanded', 'true');
+        hamburgerButton.setAttribute('aria-label', 'Menu sluiten');
+        // Eerst menu laten inschuiven; daarna pas ☰ → ✕ (voorkomt flits van alleen het kruis).
+        hamburgerNaMenuTimer = window.setTimeout(() => {
+          hamburgerButton.classList.add('is-active');
+          hamburgerNaMenuTimer = null;
+        }, 140);
+      } else {
+        hamburgerButton.classList.remove('is-active');
+        mobileMenu.classList.remove('active');
+        menuBackdrop?.classList.remove('is-visible');
+        if (menuBackdrop) menuBackdrop.hidden = true;
+        document.body.classList.remove('menu-open');
+        hamburgerButton.setAttribute('aria-expanded', 'false');
+        hamburgerButton.setAttribute('aria-label', 'Menu openen');
       }
     };
 

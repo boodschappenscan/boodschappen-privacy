@@ -1239,7 +1239,9 @@ img {
   height: 3px;
   background: #333;
   margin: 6px 0;
-  transition: transform 0.28s ease, opacity 0.2s ease;
+  transition:
+    transform 0.22s ease,
+    opacity 0.18s ease;
 }
 
 .hamburger-button.is-active .hamburger-line:nth-child(1) {
@@ -1266,7 +1268,7 @@ img {
   background: rgba(20, 41, 32, 0.45);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.24s ease, visibility 0.24s ease;
   cursor: pointer;
 }
 
@@ -1291,7 +1293,7 @@ body.menu-open {
   z-index: 260;
   background: #fff;
   box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
-  transition: right 0.3s ease-in-out;
+  transition: right 0.24s ease-out;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
