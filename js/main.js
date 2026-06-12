@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileMenu && mobileMenu.parentElement !== document.body) {
     document.body.appendChild(mobileMenu);
   }
+  beschermMobielMenuTegenReveal();
 
   if (hamburgerButton && mobileMenu) {
     const setMenuOpen = (isOpen) => {
@@ -63,6 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
         menuBackdrop.hidden = !isOpen;
       }
       document.body.classList.toggle('menu-open', isOpen);
+      if (isOpen) {
+        beschermMobielMenuTegenReveal();
+      }
     };
 
     const closeMenu = () => setMenuOpen(false);
@@ -186,9 +190,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+function beschermMobielMenuTegenReveal() {
+  document.querySelectorAll('.mobile-menu, .mobile-menu *, .mobile-menu-backdrop').forEach((el) => {
+    el.classList.remove('reveal', 'reveal-scale');
+    el.classList.add('is-visible');
+  });
+}
+
 // Scroll-animaties en subtiele beweging
 document.addEventListener('DOMContentLoaded', () => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const magRevealKrijgen = (el) => !el.closest('.mobile-menu, .mobile-menu-backdrop');
 
   const heroParts = document.querySelectorAll('.hero .hero-content, .hero .hero-visual');
   heroParts.forEach((el, index) => {
@@ -229,16 +241,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   staggerGroups.forEach(({ selector, step }) => {
     document.querySelectorAll(selector).forEach((el, index) => {
+      if (!magRevealKrijgen(el)) return;
       el.classList.add('reveal');
       if (step > 0) el.style.transitionDelay = `${index * step}s`;
     });
   });
 
-  revealItems.forEach((el) => el.classList.add('reveal'));
+  revealItems.forEach((el) => {
+    if (!magRevealKrijgen(el)) return;
+    el.classList.add('reveal');
+  });
 
   document.querySelectorAll('.text-center.section-heading').forEach((heading) => {
+    if (!magRevealKrijgen(heading)) return;
     heading.classList.add('reveal');
   });
+
+  beschermMobielMenuTegenReveal();
 
   if (reducedMotion) {
     document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));

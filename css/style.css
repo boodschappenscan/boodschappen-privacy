@@ -1283,16 +1283,15 @@ body.menu-open {
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: 0;
+  right: -100%;
   width: min(280px, 85vw);
+  max-width: 85vw;
   height: 100%;
   height: 100dvh;
   z-index: 260;
   background: #fff;
   box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-  visibility: hidden;
+  transition: right 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -1300,8 +1299,25 @@ body.menu-open {
 }
 
 .mobile-menu.active {
-  transform: translateX(0);
-  visibility: visible;
+  right: 0;
+}
+
+/* Scroll-reveal (.reveal { opacity: 0 }) mag menu-links nooit verbergen */
+.mobile-menu,
+.mobile-menu-backdrop,
+.mobile-menu * {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.mobile-menu ul,
+.mobile-menu ul li,
+.mobile-menu ul li a {
+  transform: none !important;
+}
+
+.mobile-menu ul li a {
+  color: var(--muted-color) !important;
 }
 
 .mobile-menu ul {
