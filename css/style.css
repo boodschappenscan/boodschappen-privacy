@@ -1076,22 +1076,6 @@ img {
     box-shadow: 0 6px 16px rgba(27, 77, 46, 0.28);
   }
 
-  .hamburger-button.is-active .hamburger-line:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-  }
-
-  .hamburger-button.is-active .hamburger-line:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger-button.is-active .hamburger-line:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-  }
-
-  .hamburger-button .hamburger-line {
-    transition: transform 0.28s ease, opacity 0.2s ease;
-  }
-
   @media (hover: hover) and (pointer: fine) {
     .features-grid .card:hover,
     .pricing-grid .card:hover {
@@ -1136,6 +1120,12 @@ img {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .hamburger-button .hamburger-line,
+  .mobile-menu,
+  .mobile-menu-backdrop {
+    transition: none;
   }
 }
 
@@ -1248,9 +1238,41 @@ img {
   height: 3px;
   background: #333;
   margin: 6px 0;
+  transition: transform 0.28s ease, opacity 0.2s ease;
+}
+
+.hamburger-button.is-active .hamburger-line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-button.is-active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button.is-active .hamburger-line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Mobile Menu */
+
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 190;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: rgba(20, 41, 32, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  cursor: pointer;
+}
+
+.mobile-menu-backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
 
 .mobile-menu {
   position: fixed;
@@ -1258,7 +1280,7 @@ img {
   right: -300px;
   width: min(280px, 85vw);
   height: 100%;
-  z-index: 100;
+  z-index: 260;
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: right 0.3s ease-in-out;
@@ -1413,7 +1435,7 @@ img {
 
   .navbar .hamburger-button {
     display: block;
-    z-index: 110;
+    z-index: 270;
   }
 
   .hero .container {
