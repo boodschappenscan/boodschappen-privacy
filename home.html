@@ -13,7 +13,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="css/style.css?v=5" />
+    <link rel="stylesheet" href="css/style.css?v=6" />
     <link rel="icon" href="assets/app-icon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,12 +23,6 @@
     />
   </head>
   <body>
-    <!--
-      APP STORE LIVE ZETTEN
-      1. Verwijder het blok met id="app-store-soon".
-      2. Haal de comment-tags weg rond id="app-store-live" hieronder.
-      3. Vul de href in met je App Store-URL.
-    -->
 
     <nav class="navbar">
       <div class="container">
@@ -79,26 +73,11 @@
             bewaar je bonnen en zie na verloop van tijd waar <em>jij</em> historisch het voordeligst uit bent. Alles lokaal op je iPhone.
           </p>
 
-          <div class="app-store-block" id="app-store-soon">
-            <div class="app-store-badge app-store-badge--soon" role="status">
-              <span class="app-store-badge-icon" aria-hidden="true">&#63743;</span>
-              <span class="app-store-badge-text">
-                <small>Binnenkort beschikbaar</small>
-                <strong>in de App Store</strong>
-              </span>
-            </div>
-            <p class="app-store-note">
-              Tot die tijd: lees de <a href="handleiding.html">app-handleiding</a>,
-              <a href="hoe-het-werkt.html">hoe het werkt</a>
-              of stel je vraag via <a href="support.html">support</a>.
-            </p>
-          </div>
-
-          <!--
           <div class="app-store-block" id="app-store-live">
             <a class="app-store-badge app-store-badge--live"
-               href="https://apps.apple.com/nl/app/idVUL_IN"
-               rel="noopener noreferrer">
+               href="https://apps.apple.com/nl/app/boodschappenscan/id6769793231"
+               rel="noopener noreferrer"
+               target="_blank">
               <span class="app-store-badge-icon" aria-hidden="true">&#63743;</span>
               <span class="app-store-badge-text">
                 <small>Download in de</small>
@@ -106,11 +85,10 @@
               </span>
             </a>
           </div>
-          -->
 
           <div class="hero-buttons">
             <a href="handleiding.html" class="btn btn-primary">App-handleiding</a>
-            <a href="hoe-het-werkt.html" class="btn">Hoe het werkt</a>
+            <a href="hoe-het-werkt.html" class="btn btn-primary">Hoe het werkt</a>
           </div>
           <div class="hero-trust">
             <span>Geen account nodig</span>
@@ -359,15 +337,16 @@
 
           <div class="faq-group">
             <div class="faq-group-header">
-              <h4 class="text-md">Wanneer is de app beschikbaar?</h4>
+              <h4 class="text-md">Waar download ik de app?</h4>
               <i class="fas fa-plus"></i>
             </div>
             <div class="faq-group-body">
               <p>
-                BoodschappenScan wordt binnenkort gepubliceerd in de App Store voor iPhone.
-                Tot die tijd: <a href="handleiding.html">handleiding</a>, <a href="hoe-het-werkt.html">hoe het werkt</a> of mail
-                <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a>.
-                Zodra de app live is, verschijnt hier de downloadlink in de App Store.
+                BoodschappenScan staat in de App Store voor iPhone (iOS 17 of nieuwer).
+                <a href="https://apps.apple.com/nl/app/boodschappenscan/id6769793231" rel="noopener noreferrer" target="_blank">Download in de App Store</a>
+                of lees eerst de <a href="handleiding.html">handleiding</a> en
+                <a href="hoe-het-werkt.html">hoe het werkt</a>.
+                Vragen? Mail <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a>.
               </p>
             </div>
           </div>
@@ -378,12 +357,24 @@
     <!-- CTA -->
     <section class="cta-band bg-dark">
       <div class="container-sm text-center">
-        <h2 class="text-xl cta-title">Nog vragen?</h2>
+        <h2 class="text-xl cta-title">Download BoodschappenScan</h2>
         <p class="cta-lead">
-          Bekijk de handleiding met screenshots, of stel je vraag — we helpen je graag.
+          Gratis starten op je iPhone — scan bonnen en bouw je eigen prijshistorie op.
         </p>
+        <div class="app-store-block">
+          <a class="app-store-badge app-store-badge--live"
+             href="https://apps.apple.com/nl/app/boodschappenscan/id6769793231"
+             rel="noopener noreferrer"
+             target="_blank">
+            <span class="app-store-badge-icon" aria-hidden="true">&#63743;</span>
+            <span class="app-store-badge-text">
+              <small>Download in de</small>
+              <strong>App Store</strong>
+            </span>
+          </a>
+        </div>
         <div class="cta-buttons">
-          <a href="handleiding.html" class="btn btn-primary">App-handleiding</a>
+          <a href="handleiding.html" class="btn btn-light">App-handleiding</a>
           <a href="support.html" class="btn btn-light">Support</a>
         </div>
       </div>
