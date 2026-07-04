@@ -1,413 +1,354 @@
 <!DOCTYPE html>
-<html lang="nl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BoodschappenScan — scan in de winkel of vul thuis je bon in</title>
-    <meta name="description" content="BoodschappenScan: scan in de winkel of vul thuis je bon in en bouw je eigen prijshistorie op. Jouw echte kassaprijzen, lokaal op je iPhone.">
-    <meta name="robots" content="index,follow">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="css/style.css?v=6" />
-    <link rel="icon" href="assets/app-icon.png" type="image/png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
 
-    <nav class="navbar">
-      <div class="container">
-        <div class="logo">
-          <a href="home.html">
-            <img src="assets/app-icon.png" alt="BoodschappenScan">
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BoodschappenScan — jouw persoonlijke prijsdagboek</title>
+<meta content="BoodschappenScan is jouw persoonlijke prijsdagboek: scan in de winkel of voer thuis je bon in en bouw je eigen prijsgeschiedenis op met echte kassaprijzen." name="description"/>
+<meta content="index,follow" name="robots"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+<link href="css/style.css?v=6" rel="stylesheet"/>
+<link href="assets/app-icon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar">
+<div class="container">
+<div class="logo">
+<a href="home.html">
+<img alt="BoodschappenScan" src="assets/app-icon.png"/>
             BoodschappenScan
           </a>
-        </div>
-        <div class="main-menu">
-          <ul>
-            <li><a href="home.html" class="active">Home</a></li>
-            <li><a href="slimbeginnen.html">Slim beginnen</a></li>
-            <li><a href="handleiding.html">Handleiding</a></li>
-            <li><a href="support.html">Support</a></li>
-            <li><a href="index.html">Privacy</a></li>
-          </ul>
-        </div>
-
-        <button type="button" class="hamburger-button" aria-label="Menu openen" aria-expanded="false" aria-controls="site-mobile-menu">
-          <div class="hamburger-line"></div>
-          <div class="hamburger-line"></div>
-          <div class="hamburger-line"></div>
-        </button>
-      </div>
-    </nav>
-    <button type="button" class="mobile-menu-backdrop" aria-label="Menu sluiten" hidden></button>
-    <div class="mobile-menu" id="site-mobile-menu">
-      <ul>
-        <li><a href="home.html" class="active">Home</a></li>
-        <li><a href="slimbeginnen.html">Slim beginnen</a></li>
-        <li><a href="handleiding.html">Handleiding</a></li>
-        <li><a href="support.html">Support</a></li>
-        <li><a href="index.html">Privacy</a></li>
-      </ul>
-    </div>
-
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1 class="hero-heading text-xxl">
-            Scan in de winkel
-            <span class="hero-subline">of vul thuis je bon in — bouw je eigen prijshistorie op</span>
-          </h1>
-          <p class="hero-text text-md">
-            Jouw echte kassaprijzen uit je eigen bonnen. Scan in de winkel of vul thuis je bon in,
-            bewaar je bonnen en zie na verloop van tijd waar <em>jij</em> historisch het voordeligst uit bent. Alles lokaal op je iPhone.
-          </p>
-
-          <div class="app-store-block" id="app-store-live">
-            <a class="app-store-badge app-store-badge--live"
-               href="https://apps.apple.com/nl/app/boodschappenscan/id6769793231"
-               rel="noopener noreferrer"
-               target="_blank">
-              <span class="app-store-badge-icon" aria-hidden="true">&#63743;</span>
-              <span class="app-store-badge-text">
-                <small>Download in de</small>
-                <strong>App Store</strong>
-              </span>
-            </a>
-          </div>
-
-          <div class="hero-buttons">
-            <a href="slimbeginnen.html" class="btn btn-primary">Slim beginnen</a>
-            <a href="handleiding.html" class="btn btn-primary">App-handleiding</a>
-          </div>
-          <div class="hero-trust">
-            <span>Geen account nodig</span>
-            <span>Geen advertenties</span>
-            <span>Data blijft op je iPhone</span>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="device-shot">
-            <img
-              src="assets/screenshots/startscherm.png"
-              alt="Startscherm BoodschappenScan"
-              class="app-screenshot"
-              width="844"
-              height="1811"
-              loading="eager"
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3 stappen -->
-    <section class="steps bg-black">
-      <div class="container">
-        <div class="steps-header text-center">
-          <h2 class="text-xl steps-title">Zo werkt het in drie stappen</h2>
-          <p class="steps-lead">
-            Van supermarkt kiezen tot winkelvergelijking — alles op basis van wat jij zelf invoert.
-          </p>
-        </div>
-        <div class="steps-layout">
-          <ol class="steps-list">
-            <li class="step-item">
-              <span class="step-num" aria-hidden="true">1</span>
-              <div>
-                <h3>In de winkel of thuis</h3>
-                <p>Kies je supermarkt en scan barcodes in de winkel — of werk thuis op je gemak je kassabon na: product voor product invoeren via Typen en aanpassen waar nodig (inspreken kan ook).</p>
-              </div>
-            </li>
-            <li class="step-item">
-              <span class="step-num" aria-hidden="true">2</span>
-              <div>
-                <h3>Bewaar bonnen &amp; producten</h3>
-                <p>Al je kassabonnen en prijzen op één plek, lokaal op je toestel.</p>
-              </div>
-            </li>
-            <li class="step-item">
-              <span class="step-num" aria-hidden="true">3</span>
-              <div>
-                <h3>Vergelijk winkels</h3>
-                <p>Zie waar jij voor jouw vaste boodschappen historisch het voordeligst uit bent.</p>
-              </div>
-            </li>
-          </ol>
-          <div class="steps-visual">
-            <div class="device-shot">
-              <img
-                src="assets/screenshots/scannen.png"
-                alt="Barcodescanner in BoodschappenScan"
-                class="app-screenshot"
-                width="844"
-                height="1811"
-                loading="lazy"
-              >
-            </div>
-          </div>
-        </div>
-        <div class="steps-cta text-center">
-          <a href="slimbeginnen.html" class="btn btn-primary">Slim beginnen</a>
-          <a href="handleiding.html" class="btn">Stap-voor-stap handleiding</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- App-functies -->
-    <section class="features bg-light">
-      <div class="container">
-        <h2 class="text-xl text-center section-heading">Wat je in de app doet</h2>
-        <p class="text-md text-center section-lead">
-          Supermarkt kiezen en beheren, lijsten maken, prijzen vergelijken en bonnen bijhouden — op basis van jouw eigen invoer.
-        </p>
-        <div class="features-grid">
-          <div class="card">
-            <div class="screenshot-wrap">
-              <div class="device-shot">
-                <img src="assets/screenshots/lijstje.png" alt="Boodschappenlijst" class="app-screenshot" width="844" height="1811" loading="lazy">
-              </div>
-            </div>
-            <h4>Boodschappenlijsten</h4>
-            <p>Lijsten van vaste producten en vergelijking op basis van jouw prijzen.</p>
-          </div>
-          <div class="card">
-            <div class="screenshot-wrap">
-              <div class="device-shot">
-                <img src="assets/screenshots/vergelijken.png" alt="Winkelvergelijking" class="app-screenshot" width="844" height="1811" loading="lazy">
-              </div>
-            </div>
-            <h4>Winkelvergelijking</h4>
-            <p>Per lijst zie je bij welke supermarkt jij historisch voordeliger uit bent.</p>
-          </div>
-          <div class="card">
-            <div class="screenshot-wrap">
-              <div class="device-shot">
-                <img src="assets/screenshots/bonnen.png" alt="Bonnenoverzicht" class="app-screenshot" width="844" height="1811" loading="lazy">
-              </div>
-            </div>
-            <h4>Bonnen &amp; geschiedenis</h4>
-            <p>Bonhistorie, PDF-export en widget. Maandterugblik: <strong>BoodschappenScan Volledig</strong>.</p>
-          </div>
-          <div class="card">
-            <div class="screenshot-wrap">
-              <div class="device-shot">
-                <img src="assets/screenshots/supermarktselecteren.png" alt="Supermarkt selecteren in BoodschappenScan" class="app-screenshot" width="844" height="1811" loading="lazy">
-              </div>
-            </div>
-            <h4>Supermarkt selecteren</h4>
-            <p>Kies vóór het scannen bij welke supermarkt je bent — zo kloppen je prijzen en vergelijkingen.</p>
-          </div>
-          <div class="card">
-            <div class="screenshot-wrap">
-              <div class="device-shot">
-                <img src="assets/screenshots/supermarktaanpassen.png" alt="Supermarkten beheren in BoodschappenScan" class="app-screenshot" width="844" height="1811" loading="lazy">
-              </div>
-            </div>
-            <h4>Supermarkten beheren</h4>
-            <p>Voeg winkels toe, hernoem of verwijder ze. Jouw vaste supermarkten op één plek.</p>
-          </div>
-          <div class="card">
-            <div class="screenshot-wrap">
-              <div class="device-shot">
-                <img src="assets/screenshots/prijsverloop.png" alt="Prijsverloop per product" class="app-screenshot" width="844" height="1811" loading="lazy">
-              </div>
-            </div>
-            <h4>Prijsverloop</h4>
-            <p>Kiloprijs en metingen per winkel. Prijsgeschiedenisgrafiek: <strong>BoodschappenScan Volledig</strong>.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="pricing" id="pricing">
-      <div class="container-sm">
-        <h2 class="pricing-heading text-xl text-center section-heading">Eerst proberen, later uitbreiden</h2>
-        <p class="pricing-subheading text-md text-center section-lead">
+</div>
+<div class="main-menu">
+<ul>
+<li><a class="active" href="home.html">Home</a></li>
+<li><a href="slimbeginnen.html">Slim beginnen</a></li>
+<li><a href="handleiding.html">Handleiding</a></li>
+<li><a href="support.html">Support</a></li>
+<li><a href="index.html">Privacy</a></li>
+</ul>
+</div>
+<button aria-controls="site-mobile-menu" aria-expanded="false" aria-label="Menu openen" class="hamburger-button" type="button">
+<div class="hamburger-line"></div>
+<div class="hamburger-line"></div>
+<div class="hamburger-line"></div>
+</button>
+</div>
+</nav>
+<button aria-label="Menu sluiten" class="mobile-menu-backdrop" hidden="" type="button"></button>
+<div class="mobile-menu" id="site-mobile-menu">
+<ul>
+<li><a class="active" href="home.html">Home</a></li>
+<li><a href="slimbeginnen.html">Slim beginnen</a></li>
+<li><a href="handleiding.html">Handleiding</a></li>
+<li><a href="support.html">Support</a></li>
+<li><a href="index.html">Privacy</a></li>
+</ul>
+</div>
+<!-- Hero -->
+<section class="hero">
+<div class="container">
+<div class="hero-content">
+<h1 class="hero-heading text-xxl">Jouw persoonlijke prijsdagboek<span class="hero-subline">bouw je eigen prijsgeschiedenis op met echte kassaprijzen</span></h1>
+<p class="hero-text text-md">BoodschappenScan laat zien wat jij écht betaalt voor je boodschappen. Scan in de winkel of voer thuis je kassabon in, bewaar je prijzen en ontdek na verloop van tijd waar <em>jij</em> historisch voordeliger uit bent. Alles blijft lokaal op je iPhone.</p>
+<div class="app-store-block" id="app-store-live">
+<a class="app-store-badge app-store-badge--live" href="https://apps.apple.com/nl/app/boodschappenscan/id6769793231" rel="noopener noreferrer" target="_blank">
+<span aria-hidden="true" class="app-store-badge-icon"></span>
+<span class="app-store-badge-text">
+<small>Download in de</small>
+<strong>App Store</strong>
+</span>
+</a>
+</div>
+<div class="hero-buttons"><a class="btn btn-primary" href="slimbeginnen.html">Slim beginnen</a>
+<a class="btn btn-primary" href="handleiding.html">Handleiding</a></div>
+<div class="hero-trust">
+<span>Geen account nodig</span>
+<span>Geen advertenties</span>
+<span>Data blijft op je iPhone</span>
+</div>
+</div>
+<div class="hero-visual">
+<div class="device-shot">
+<img alt="Startscherm BoodschappenScan" class="app-screenshot" height="1811" loading="eager" src="assets/screenshots/startscherm.png" width="844"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 3 stappen -->
+<section class="steps bg-black">
+<div class="container">
+<div class="steps-header text-center">
+<h2 class="text-xl steps-title">Van bon naar persoonlijk prijsinzicht</h2>
+<p class="steps-lead">Je begint leeg, vult je eigen catalogus en krijgt steeds betere vergelijkingen op basis van jouw echte kassaprijzen.</p>
+</div>
+<div class="steps-layout">
+<ol class="steps-list">
+<li class="step-item">
+<span aria-hidden="true" class="step-num">1</span>
+<div>
+<h3>Scan of voer je bon in</h3>
+<p>Kies je supermarkt en scan producten tijdens het winkelen, of voer thuis rustig je kassabon in. Elk product bouwt mee aan jouw prijsdagboek.</p>
+</div>
+</li>
+<li class="step-item">
+<span aria-hidden="true" class="step-num">2</span>
+<div>
+<h3>Bouw je eigen catalogus</h3>
+<p>Je catalogus begint bewust leeg. Je vult hem met jouw producten, jouw winkels en jouw betaalde prijzen.</p>
+</div>
+</li>
+<li class="step-item">
+<span aria-hidden="true" class="step-num">3</span>
+<div>
+<h3>Vergelijk jouw prijzen</h3>
+<p>Na verloop van tijd zie je prijsverschillen, prijsgeschiedenis en bij welke winkel jij historisch voordeliger uit bent.</p>
+</div>
+</li>
+</ol>
+<div class="steps-visual">
+<div class="device-shot">
+<img alt="Barcodescanner in BoodschappenScan" class="app-screenshot" height="1811" loading="lazy" src="assets/screenshots/scannen.png" width="844"/>
+</div>
+</div>
+</div>
+<div class="steps-cta text-center">
+<a class="btn btn-primary" href="slimbeginnen.html">Slim beginnen</a>
+<a class="btn" href="handleiding.html">Stap-voor-stap handleiding</a>
+</div>
+</div>
+</section>
+<!-- App-functies -->
+<section class="features bg-light">
+<div class="container">
+<h2 class="text-xl text-center section-heading">Wat je prijsdagboek voor je doet</h2>
+<p class="text-md text-center section-lead">Scannen, bonnen bewaren, lijsten maken en prijzen vergelijken — allemaal op basis van jouw eigen invoer.</p>
+<div class="features-grid">
+<div class="card">
+<div class="screenshot-wrap">
+<div class="device-shot">
+<img alt="Boodschappenlijst" class="app-screenshot" height="1811" loading="lazy" src="assets/screenshots/lijstje.png" width="844"/>
+</div>
+</div>
+<h4>Boodschappenlijsten</h4>
+<p>Lijsten van vaste producten en vergelijking op basis van jouw prijzen.</p>
+</div>
+<div class="card">
+<div class="screenshot-wrap">
+<div class="device-shot">
+<img alt="Winkelvergelijking" class="app-screenshot" height="1811" loading="lazy" src="assets/screenshots/vergelijken.png" width="844"/>
+</div>
+</div>
+<h4>Winkelvergelijking</h4>
+<p>Per lijst zie je bij welke supermarkt jij historisch voordeliger uit bent.</p>
+</div>
+<div class="card">
+<div class="screenshot-wrap">
+<div class="device-shot">
+<img alt="Bonnenoverzicht" class="app-screenshot" height="1811" loading="lazy" src="assets/screenshots/bonnen.png" width="844"/>
+</div>
+</div>
+<h4>Bonnen &amp; geschiedenis</h4>
+<p>Bonhistorie, PDF-export en widget. Maandterugblik: <strong>BoodschappenScan Volledig</strong>.</p>
+</div>
+<div class="card">
+<div class="screenshot-wrap">
+<div class="device-shot">
+<img alt="Supermarkt selecteren in BoodschappenScan" class="app-screenshot" height="1811" loading="lazy" src="assets/screenshots/supermarktselecteren.png" width="844"/>
+</div>
+</div>
+<h4>Supermarkt selecteren</h4>
+<p>Kies vóór het scannen bij welke supermarkt je bent — zo kloppen je prijzen en vergelijkingen.</p>
+</div>
+<div class="card">
+<div class="screenshot-wrap">
+<div class="device-shot">
+<img alt="Supermarkten beheren in BoodschappenScan" class="app-screenshot" height="1811" loading="lazy" src="assets/screenshots/supermarktaanpassen.png" width="844"/>
+</div>
+</div>
+<h4>Supermarkten beheren</h4>
+<p>Voeg winkels toe, hernoem of verwijder ze. Jouw vaste supermarkten op één plek.</p>
+</div>
+<div class="card">
+<div class="screenshot-wrap">
+<div class="device-shot">
+<img alt="Prijsverloop per product" class="app-screenshot" height="1811" loading="lazy" src="assets/screenshots/prijsverloop.png" width="844"/>
+</div>
+</div>
+<h4>Prijsverloop</h4>
+<p>Kiloprijs en metingen per winkel. Prijsgeschiedenisgrafiek: <strong>BoodschappenScan Volledig</strong>.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing -->
+<section class="pricing" id="pricing">
+<div class="container-sm">
+<h2 class="pricing-heading text-xl text-center section-heading">Eerst proberen, later uitbreiden</h2>
+<p class="pricing-subheading text-md text-center section-lead">
           Geen abonnement. Eénmalige upgrade via Apple als je meer wilt.
         </p>
-        <div class="pricing-grid">
-          <div class="card bg-light">
-            <div class="pricing-card-header">
-              <h4 class="pricing-heading text-xl">Basisversie</h4>
-              <p class="pricing-card-subheading">
+<div class="pricing-grid">
+<div class="card bg-light">
+<div class="pricing-card-header">
+<h4 class="pricing-heading text-xl">Basisversie</h4>
+<p class="pricing-card-subheading">
                 Volledig bruikbaar met royale limieten. Ideaal om te ontdekken of de app bij je past.
               </p>
-              <p class="pricing-card-price">
-                <span class="text-xl">€&nbsp;0</span>
-                <br>Geen creditcard nodig
+<p class="pricing-card-price">
+<span class="text-xl">€ 0</span>
+<br/>Geen creditcard nodig
               </p>
-            </div>
-            <div class="pricing-card-body">
-              <ul>
-                <li><i class="fas fa-check"></i> Max. 3 boodschappenlijsten</li>
-                <li><i class="fas fa-check"></i> Max. 200 catalogusproducten</li>
-                <li><i class="fas fa-check"></i> Max. 40 opgeslagen bonnen</li>
-                <li><i class="fas fa-check"></i> Scannen, lijsten &amp; vergelijken</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="card bg-black">
-            <div class="pricing-card-header">
-              <h4 class="pricing-card-heading text-xl">BoodschappenScan Volledig</h4>
-              <p class="pricing-card-subheading">
-                Eenmalig €&nbsp;4,99 via Apple. Geen limieten plus prijsgeschiedenis en extra functies.
+</div>
+<div class="pricing-card-body">
+<ul>
+<li><i class="fas fa-check"></i> Max. 3 boodschappenlijsten</li>
+<li><i class="fas fa-check"></i> Max. 200 catalogusproducten</li>
+<li><i class="fas fa-check"></i> Max. 40 opgeslagen bonnen</li>
+<li><i class="fas fa-check"></i> Scannen, lijsten &amp; vergelijken</li>
+</ul>
+</div>
+</div>
+<div class="card bg-black">
+<div class="pricing-card-header">
+<h4 class="pricing-card-heading text-xl">BoodschappenScan Volledig</h4>
+<p class="pricing-card-subheading">
+                Eenmalig € 4,99 via Apple. Geen limieten plus prijsgeschiedenis en extra functies.
               </p>
-              <p class="pricing-card-price">
-                <span class="text-xl">€ 4,99</span>
-                <br>Eenmalig · geen abonnement
+<p class="pricing-card-price">
+<span class="text-xl">€ 4,99</span>
+<br/>Eenmalig · geen abonnement
               </p>
-            </div>
-            <div class="pricing-card-body">
-              <p>Alles uit de basisversie, plus:</p>
-              <ul>
-                <li><i class="fas fa-check"></i> Onbeperkte lijsten, producten&nbsp;&amp;&nbsp;bonnen</li>
-                <li><i class="fas fa-check"></i> Prijsgeschiedenis per product</li>
-                <li><i class="fas fa-check"></i> Lijstsjablonen &amp; budget per lijst</li>
-              </ul>
-              <a href="support.html" class="btn btn-primary btn-block">Meer over Volledig</a>
-            </div>
-          </div>
-        </div>
-        <p class="pricing-footer text-center">
+</div>
+<div class="pricing-card-body">
+<p>Alles uit de basisversie, plus:</p>
+<ul>
+<li><i class="fas fa-check"></i> Onbeperkte lijsten, producten &amp; bonnen</li>
+<li><i class="fas fa-check"></i> Prijsgeschiedenis per product</li>
+<li><i class="fas fa-check"></i> Lijstsjablonen &amp; budget per lijst</li>
+</ul>
+<a class="btn btn-primary btn-block" href="support.html">Meer over Volledig</a>
+</div>
+</div>
+</div>
+<p class="pricing-footer text-center">
           Terugbetaling via Apple (<a href="https://reportaproblem.apple.com" rel="noopener noreferrer">reportaproblem.apple.com</a>).
           Vragen over aankoop? <a href="support.html">Support</a>.
         </p>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq bg-light">
-      <div class="container-sm">
-        <h2 class="text-xl text-center section-heading">Veelgestelde vragen</h2>
-        <div class="faq-content">
-          <div class="faq-group">
-            <div class="faq-group-header">
-              <h4 class="text-md">
+</div>
+</section>
+<!-- FAQ -->
+<section class="faq bg-light">
+<div class="container-sm">
+<h2 class="text-xl text-center section-heading">Veelgestelde vragen</h2>
+<div class="faq-content">
+<div class="faq-group">
+<div class="faq-group-header">
+<h4 class="text-md">
                 Hoe werkt de prijsvergelijking?
               </h4>
-              <i class="fas fa-minus"></i>
-            </div>
-            <div class="faq-group-body open">
-              <p>
-                Je bouwt zelf je catalogus op door bonnen in te voeren. Vergelijken werkt op basis van jouw echte kassaprijzen bij winkels waar jij zelf hebt gescand. Lees <a href="slimbeginnen.html">slim beginnen</a>
-                of volg de <a href="handleiding.html">app-handleiding</a> stap voor stap.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-group">
-            <div class="faq-group-header">
-              <h4 class="text-md">Waar blijven mijn gegevens?</h4>
-              <i class="fas fa-plus"></i>
-            </div>
-            <div class="faq-group-body">
-              <p>
+<i class="fas fa-minus"></i>
+</div>
+<div class="faq-group-body open">
+<p>BoodschappenScan vergelijkt geen algemene internetprijzen, maar jouw eigen kassaprijzen. Je bouwt eerst een persoonlijke catalogus op. Hoe vaker je dezelfde of vergelijkbare producten bij meerdere supermarkten invoert, hoe betrouwbaarder je prijsvergelijking wordt.</p>
+</div>
+</div>
+<div class="faq-group">
+<div class="faq-group-header">
+<h4 class="text-md">Waar blijven mijn gegevens?</h4>
+<i class="fas fa-plus"></i>
+</div>
+<div class="faq-group-body">
+<p>
                 Op je iPhone. Geen account, geen advertenties, geen tracking.
                 Maak af en toe een back-up via tab Meer → Back-up maken → Kopieer naar iCloud / AirDrop / …
                 Zie onze <a href="index.html">privacyverklaring</a> en <a href="support.html">support</a>.
               </p>
-            </div>
-          </div>
-
-          <div class="faq-group">
-            <div class="faq-group-header">
-              <h4 class="text-md">Wat is het verschil tussen Gratis en Volledig?</h4>
-              <i class="fas fa-plus"></i>
-            </div>
-            <div class="faq-group-body">
-              <p>
+</div>
+</div>
+<div class="faq-group">
+<div class="faq-group-header">
+<h4 class="text-md">Wat is het verschil tussen Gratis en Volledig?</h4>
+<i class="fas fa-plus"></i>
+</div>
+<div class="faq-group-body">
+<p>
                 Zie het overzicht hierboven onder <a href="#pricing">Eerst proberen, later uitbreiden</a>.
                 Vragen over aankoop of herstellen? <a href="support.html">Support</a>.
               </p>
-            </div>
-          </div>
-
-          <div class="faq-group">
-            <div class="faq-group-header">
-              <h4 class="text-md">Waar download ik de app?</h4>
-              <i class="fas fa-plus"></i>
-            </div>
-            <div class="faq-group-body">
-              <p>
+</div>
+</div>
+<div class="faq-group">
+<div class="faq-group-header">
+<h4 class="text-md">Waar download ik de app?</h4>
+<i class="fas fa-plus"></i>
+</div>
+<div class="faq-group-body">
+<p>
                 BoodschappenScan staat in de App Store voor iPhone (iOS 17 of nieuwer).
                 <a href="https://apps.apple.com/nl/app/boodschappenscan/id6769793231" rel="noopener noreferrer" target="_blank">Download in de App Store</a>
                 of lees eerst de <a href="handleiding.html">handleiding</a> en
                 <a href="slimbeginnen.html">slim beginnen</a>.
                 Vragen? Mail <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a>.
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-band bg-dark">
-      <div class="container-sm text-center">
-        <h2 class="text-xl cta-title">Download BoodschappenScan</h2>
-        <p class="cta-lead">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="cta-band bg-dark">
+<div class="container-sm text-center">
+<h2 class="text-xl cta-title">Download BoodschappenScan</h2>
+<p class="cta-lead">
           Gratis starten op je iPhone — scan bonnen en bouw je eigen prijshistorie op.
         </p>
-        <div class="app-store-block">
-          <a class="app-store-badge app-store-badge--live"
-             href="https://apps.apple.com/nl/app/boodschappenscan/id6769793231"
-             rel="noopener noreferrer"
-             target="_blank">
-            <span class="app-store-badge-icon" aria-hidden="true">&#63743;</span>
-            <span class="app-store-badge-text">
-              <small>Download in de</small>
-              <strong>App Store</strong>
-            </span>
-          </a>
+<div class="app-store-block">
+<a class="app-store-badge app-store-badge--live" href="https://apps.apple.com/nl/app/boodschappenscan/id6769793231" rel="noopener noreferrer" target="_blank">
+<span aria-hidden="true" class="app-store-badge-icon"></span>
+<span class="app-store-badge-text">
+<small>Download in de</small>
+<strong>App Store</strong>
+</span>
+</a>
+</div>
+<div class="cta-buttons">
+<a class="btn btn-light" href="handleiding.html">App-handleiding</a>
+<a class="btn btn-light" href="support.html">Support</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer bg-black">
+<div class="container">
+<div class="footer-simple">
+<div class="footer-brand">
+<a href="home.html">
+<img alt="" height="44" src="assets/app-icon.png" width="44"/>
+<strong>BoodschappenScan</strong>
+</a>
+<p>Jouw persoonlijke prijsdagboek — lokaal op je iPhone.</p>
+<a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a>
+</div>
+<div class="footer-links">
+<ul>
+<li><a href="home.html">Home</a></li>
+<li><a href="slimbeginnen.html">Slim beginnen</a></li>
+<li><a href="handleiding.html">Handleiding</a></li>
+<li><a href="support.html">Support</a></li>
+<li><a href="index.html">Privacy</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+          © BoodschappenScan · Made in NL
         </div>
-        <div class="cta-buttons">
-          <a href="handleiding.html" class="btn btn-light">App-handleiding</a>
-          <a href="support.html" class="btn btn-light">Support</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer bg-black">
-      <div class="container">
-        <div class="footer-simple">
-          <div class="footer-brand">
-            <a href="home.html">
-              <img src="assets/app-icon.png" alt="" width="44" height="44">
-              <strong>BoodschappenScan</strong>
-            </a>
-            <p>Jouw bonnen, jouw prijzen — lokaal op je iPhone.</p>
-            <a href="mailto:boodschappenscan@proton.me">boodschappenscan@proton.me</a>
-          </div>
-          <div class="footer-links">
-            <ul>
-              <li><a href="home.html">Home</a></li>
-              <li><a href="slimbeginnen.html">Slim beginnen</a></li>
-              <li><a href="handleiding.html">Handleiding</a></li>
-              <li><a href="support.html">Support</a></li>
-              <li><a href="index.html">Privacy</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          &copy; BoodschappenScan · Made in NL
-        </div>
-      </div>
-    </footer>
-
-    <script src="js/main.js?v=4"></script>
-  </body>
+</div>
+</footer>
+<script src="js/main.js?v=4"></script>
+</body>
 </html>
