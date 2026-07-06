@@ -336,13 +336,6 @@ img {
   max-width: 100%;
 }
 
-.app-store-badge--soon {
-  background: #2c2c2e;
-  color: #fff;
-  opacity: 0.92;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
 .app-store-badge--live {
   background: #000;
   color: #fff;
@@ -368,13 +361,6 @@ img {
 .app-store-badge-text strong {
   font-size: 1.05rem;
   font-weight: 600;
-}
-
-.app-store-note {
-  margin-top: 10px;
-  font-size: 0.88rem;
-  color: var(--muted-color);
-  max-width: 28em;
 }
 
 /* 3 stappen */
