@@ -63,6 +63,9 @@
 <div class="guide-warning box">
 <p style="margin:0;"><strong>Verwijder je de app?</strong> Dan ben je al je gegevens kwijt. Maak vóór verwijderen een back-up: tab <strong>Meer</strong> → <strong>Back-up maken</strong> → tik op <strong>Kopieer naar iCloud / AirDrop / …</strong> en sla het .json-bestand <strong>buiten de app</strong> op (bijv. iCloud Drive of AirDrop). Alleen op je iPhone laten staan is niet genoeg.</p>
 </div>
+<div class="box" style="margin-top: 1rem;">
+<p style="margin:0;"><strong>Vijf tabbladen:</strong> <strong>Scannen</strong> (nieuwe bon), <strong>Bonnen</strong> (geschiedenis), <strong>Lijsten</strong> (mand en winkelvergelijking), <strong>Producten</strong> (catalogus en prijsverloop), <strong>Meer</strong> (back-up, instellingen, upgrade). Zolang de app open blijft, blijf je op het tabblad waar je bent; na herstart opent de app weer op Scannen.</p>
+</div>
 </div>
 <div class="guide-layout container">
 <aside aria-label="Inhoudsopgave" class="guide-toc">
@@ -244,6 +247,12 @@
 <figcaption>Bon opgeslagen — optioneel back-up maken.</figcaption>
 </figure>
 </article>
+<article class="guide-step">
+<div class="guide-step-head">
+<span class="guide-step-num">9</span>
+<h3>Scan-tips op het startscherm</h3>
+</div>
+<p>Na het sluiten van een bon kan op tab <strong>Scannen</strong> een subtiele tip verschijnen, bijvoorbeeld om hetzelfde product bij een andere supermarkt te scannen. Je kunt de tip wegklikken; daarna verschijnt er hooguit één keer per drie dagen weer een tip. Dit helpt je vergelijking opbouwen zonder pop-ups tijdens het scannen.</p>
 </section>
 <!-- PRODUCTEN -->
 <section class="guide-chapter" id="producten">
@@ -267,7 +276,7 @@
 <span class="guide-step-num">2</span>
 <h3>Prijsverloop per product</h3>
 </div>
-<p>Tik op een product voor metingen per winkel: kiloprijs per supermarkt, alle metingen en (bij gekoppelde korting) labels zoals «Korting op bon» of «Waarschijnlijk aanbieding». Staat er <strong>Vergelijk supermarkten</strong> bovenaan? Dan zie je per kilo/liter bij welke winkel jij historisch het voordeligst uit bent voor dit product (of productgroep, bijv. verschillende verpakkingen van dezelfde soort). Met BoodschappenScan Volledig zie je onder <strong>Grafiek</strong> een prijsgeschiedenis per winkel — boven de grafiek staat de productnaam. Veeg een meting naar links om die te wissen.</p>
+<p>Tik op een product voor metingen per winkel: kiloprijs per supermarkt, alle metingen en (bij gekoppelde korting) labels zoals «Korting op bon» of «Waarschijnlijk aanbieding». Winkels vergelijken voor je hele mand doe je via <strong>Lijsten</strong> → <strong>Je mand</strong> → <strong>Bekijk vergelijking</strong>. Met BoodschappenScan Volledig zie je onder <strong>Grafiek</strong> een prijsgeschiedenis per winkel — boven de grafiek staat de productnaam. Veeg een meting naar links om die te wissen.</p>
 <figure class="guide-figure">
 <div class="device-shot guide-shot is-zoomable">
 <img alt="Prijsverloop met grafiek en metingen" class="app-screenshot" height="1024" loading="lazy" src="assets/fotohandleiding/productenprijsverloop20a.png" width="470"/>
@@ -280,7 +289,7 @@
 <span class="guide-step-num">3</span>
 <h3>Product bewerken</h3>
 </div>
-<p>Open het menu (⋯) rechtsboven in het prijsverloop of veeg op een catalogusregel naar links → <strong>Bewerk product</strong>. Pas naam, barcode, categorie, inhoud (voor €/kg) en eventueel een referentieprijs aan. Kies de categorie zelf in de lijst.</p>
+<p>Open het menu (⋯) rechtsboven in het prijsverloop of veeg op een catalogusregel naar links → <strong>Bewerk product</strong>. Pas naam, barcode, categorie, inhoud (voor €/kg) en eventueel een referentieprijs aan. Kies de categorie zelf in de lijst. Zelfde artikel bij een andere winkel (andere barcode)? In <strong>Bewerk product</strong> → sectie <strong>Zelfde product, andere winkel</strong> → <strong>Koppel vergelijkbaar product…</strong>. Ontkoppelen kan daar met de rode knop.</p>
 <figure class="guide-figure">
 <div class="device-shot guide-shot is-zoomable">
 <img alt="Product bewerken in catalogus" class="app-screenshot" height="1024" loading="lazy" src="assets/fotohandleiding/productenbewerkproduct_20b.png" width="470"/>
@@ -318,12 +327,13 @@
 <span class="guide-step-num">2</span>
 <h3>In de winkel: afvinken en scannen</h3>
 </div>
-<p>Vink producten af terwijl je winkelt. Onderaan zie je «X van Y gepakt» en een totaalschatting. Boven de producten staat sectie <strong>Je mand</strong> zodra je bij minstens twee winkels hebt gescand:</p>
+<p>Vink producten af terwijl je winkelt. Onderaan zie je «X van Y gepakt» en een totaalschatting. Boven de producten staat sectie <strong>Je mand</strong> zodra er actieve (niet-afgevinkte) producten op de lijst staan:</p>
 <ul style="margin: 10px 0 0;">
-<li><strong>Je mand</strong> — voordeligste winkel voor je hele lijst (~€ mand) en score zoals «2 van 2 voordeligst». Eventueel een tip om te besparen door over meerdere winkels te verdelen.</li>
-<li><strong>Bekijk vergelijking</strong> — ranglijst per winkel; daaronder <strong>Detail per artikel en winkel</strong> voor het volledige overzicht.</li>
+<li><strong>Je mand</strong> — totaalschatting en voordeligste winkel (~€ mand). Met prijzen bij minstens twee winkels: score «X van Y voordeligst» en eventueel advies «Bespaar €X over Y winkels» (slimste verdeling).</li>
+<li><strong>Bekijk vergelijking</strong> — ranglijst per winkel (pas bij voldoende winkeldata); daaronder <strong>Detail per artikel en winkel</strong> voor het volledige overzicht.</li>
+<li>Zonder voldoende winkeldata kan een subtiele tip verschijnen om hetzelfde product bij een andere supermarkt te scannen.</li>
 </ul>
-<p style="margin-top: 10px;">Per productregel: groene labels en <strong>Details per winkel</strong> voor alle prijzen. Knoppen <strong>Scannen</strong> en <strong>Toevoegen</strong> voegen producten toe. Heb je favorieten die nog niet op de lijst staan? Gebruik <strong>Favorieten toevoegen</strong> onderaan.</p>
+<p style="margin-top: 10px;">Per productregel: groene labels met de voordeligste winkel op €/kg. Knoppen <strong>Scannen</strong> en <strong>Toevoegen</strong> voegen producten toe. Heb je favorieten die nog niet op de lijst staan? Gebruik <strong>Favorieten toevoegen</strong> onderaan.</p>
 <figure class="guide-figure">
 <div class="device-shot guide-shot is-zoomable">
 <img alt="Boodschappenlijst afvinken in winkel" class="app-screenshot" height="1024" loading="lazy" src="assets/fotohandleiding/lijstenboodschappenlijst_18.png" width="470"/>
@@ -385,9 +395,9 @@
 <article class="guide-step">
 <div class="guide-step-head">
 <span class="guide-step-num">2</span>
-<h3>Per product: vergelijk supermarkten</h3>
+<h3>Per product: prijsverloop (niet mand-vergelijking)</h3>
 </div>
-<p>Naast vergelijken per lijst kun je in tab Producten → tik op een product → <strong>Vergelijk supermarkten</strong> zien bij welke winkel jij per kilo of liter het voordeligst uit bent. Werkt als je hetzelfde (of vergelijkbare varianten in één productgroep) bij meerdere winkels hebt gescand.</p>
+<p>Per product zie je je prijshistorie en €/kg per winkel. <strong>Vergelijken tussen winkels</strong> voor je hele mand doe je via tab <strong>Lijsten</strong> → open een lijst → <strong>Je mand</strong> → <strong>Bekijk vergelijking</strong>.</p>
 </article>
 </section>
 <!-- BONNEN -->
@@ -521,7 +531,7 @@
 <h3>Back-up maken</h3>
 </div>
 <ol>
-<li>Tab <strong>Meer</strong> → <strong>Back-up maken</strong>. Het .json-bestand bevat bonnen, producten, lijsten, <strong>categorieën</strong> en <strong>supermarkten</strong>.</li>
+<li>Tab <strong>Meer</strong> → <strong>Back-up maken</strong>. Het .json-bestand bevat bonnen, producten, lijsten, lijstsjablonen, <strong>categorieën</strong> en <strong>supermarkten</strong>.</li>
 <li>Als <strong>Back-up is opgeslagen</strong> verschijnt, tik op <strong>Kopieer naar iCloud / AirDrop / …</strong>.</li>
 <li>Kies in het iOS-menu waar je het bestand wilt bewaren <strong>buiten de app</strong>, bijv. <strong>iCloud Drive</strong>, <strong>AirDrop</strong> naar je Mac, of <strong>Mail</strong> naar jezelf.</li>
 </ol>
@@ -551,7 +561,7 @@
 <span class="guide-step-num">3</span>
 <h3>Gratis &amp; Volledig vergelijken</h3>
 </div>
-<p>Tab Meer → <strong>Gratis &amp; Volledig vergelijken</strong>. Gratis: producten scannen, max. 3 lijsten, 200 catalogusproducten en 40 bonnen — plus favorieten, vergelijken, back-up en widget. Budget per bon tijdens scannen is gratis. Volledig heft de limieten op en voegt budget per lijst, maandstatistieken, lijstsjablonen en de prijsgeschiedenisgrafiek toe. Meer prijzen: <a href="home.html#pricing">prijsoverzicht op de website</a>.</p>
+<p>Tab Meer → <strong>Gratis &amp; Volledig vergelijken</strong>. Gratis: producten scannen, max. 3 lijsten, 200 catalogusproducten en 40 bonnen (geen automatische verwijdering; bij 40 bonnen geen nieuwe bon tot ruimte maken of upgrade) — plus favorieten, vergelijken, back-up en widget. Budget per bon tijdens scannen is gratis. Volledig heft de limieten op en voegt budget per lijst, maandstatistieken, lijstsjablonen en de prijsgeschiedenisgrafiek toe. Meer prijzen: <a href="home.html#pricing">prijsoverzicht op de website</a>.</p>
 <figure class="guide-figure">
 <div class="device-shot guide-shot is-zoomable">
 <img alt="Vergelijking gratis en BoodschappenScan Volledig" class="app-screenshot" height="1024" loading="lazy" src="assets/fotohandleiding/Gratisvolledig1_26.png" width="470"/>
